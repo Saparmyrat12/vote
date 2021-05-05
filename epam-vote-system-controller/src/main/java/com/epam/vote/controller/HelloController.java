@@ -18,6 +18,6 @@ public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(){
-        return "Hello world";
+        return "Hello world\n";
     }
 }
