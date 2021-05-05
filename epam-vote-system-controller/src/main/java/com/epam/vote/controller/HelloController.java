@@ -12,14 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
  * Date: май 04, 2021
  * @author Sapar.
  */
-
 @RestController
 @RequestMapping("/api")
 public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(){
-        return "Hello world.";
-
+        return "Hello world";
     }
 }
