@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  * <p/>
  * Date: май 04, 2021
  * @author Sapar.
- * This class print Hello world by url /api
  */
 
 @RestController
