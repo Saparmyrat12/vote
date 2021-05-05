@@ -4,7 +4,7 @@
 
 
 #### Tasks
-- [[1-0001: Fork and setting git](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task[1-0001: Fork and setting git])
+- [[1-0001: Fork and setting git](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0001-fork-and-setting-git)
 - [[1-0002: Create infrastructure for project]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task[1-0002: Create infrastructure for project])
 - [[1-0003: Create infrastructure for database and create db for the project]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task[1-0003: Create infrastructure for database and create db for the project])
 
