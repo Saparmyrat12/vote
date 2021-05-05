@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * This class print Hello world by url /api.
  * <p/>
  * Copyright (C) 2021
  * <p/>
  * Date: май 04, 2021
- * @author Sapar
+ * @author Sapar.
  * This class print Hello world by url /api
  */
 
@@ -19,7 +20,7 @@ public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(){
-        return "Hello world";
+        return "Hello world.";
 
     }
 }
