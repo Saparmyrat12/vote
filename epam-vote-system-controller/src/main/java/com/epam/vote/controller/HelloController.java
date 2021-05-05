@@ -9,15 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
  * Copyright (C) 2021
  * <p/>
  * Date: май 04, 2021
- *
  * @author Sapar
+ * This class print Hello world by url /api
  */
 
 @RestController
 @RequestMapping("/api")
 public class HelloController {
+
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(){
         return "Hello world";
+
     }
 }
