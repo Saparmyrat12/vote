@@ -7,7 +7,7 @@
 
     <changeSet id="2021-07-05-10" author="sapar">
         <sql>
-           CREATE SCHEMA  IF NOT EXISTS epam
+            CREATE SCHEMA IF NOT EXISTS epam
         </sql>
     </changeSet>
 

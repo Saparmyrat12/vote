@@ -11,11 +11,8 @@
             <column name="name" value="sapar"/>
             <column name="email" value="sapar@gmail.com"/>
             <column name="password" value="12345"/>
-            <column name="created_user" value=""/>
-            <column name="updated_user" value=""/>
-            <column name="created_date" value=""/>
-            <column name="updated_date" value=""/>
-            <column name="record_version" value=""/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
         </insert>
     </changeSet>
 

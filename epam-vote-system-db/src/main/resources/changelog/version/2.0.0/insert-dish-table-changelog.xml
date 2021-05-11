@@ -13,6 +13,8 @@
         <insert tableName="dish">
             <column name="id" value="2"/>
             <column name="name" value="cake"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
