@@ -6,7 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="2021-07-05-06" author="sapar">
-        <createTable tableName="restaurant" schemaName="main">
+        <createTable tableName="restaurant" schemaName="epam">
             <column name="id" type="varchar(256)">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -22,7 +22,7 @@
             <column name="updated_user" type="varchar(256)">
                 <constraints nullable="true"/>
             </column>
-            <column name="created_date" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
                 <constraints nullable="false"/>
             </column>
             <column name="updated_date" type="timestamp"/>

@@ -6,7 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="2021-07-05-08" author="sapar">
-        <createTable tableName="dish" schemaName="main">
+        <createTable tableName="restaurant_dish" schemaName="epam">
             <column name="id" type="varchar(256)">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -14,10 +14,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="restaurant_id" type="varchar(256)">
-                <constraints foreignKeyName="fk_restaurant_id" references="restaurant(id)" nullable="false"/>
+                <constraints foreignKeyName="fk_restaurant_id" references="epam.restaurant(id)" nullable="false"/>
             </column>
             <column name="dish_id" type="varchar(256)">
-                <constraints foreignKeyName="fk_dish_id" references="dish(id)" nullable="false"/>
+                <constraints foreignKeyName="fk_dish_id" references="epam.dish(id)" nullable="false"/>
             </column>
         </createTable>
     </changeSet>

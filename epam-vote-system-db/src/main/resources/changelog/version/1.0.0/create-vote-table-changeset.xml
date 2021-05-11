@@ -6,15 +6,15 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="2021-07-05-09" author="sapar">
-        <createTable tableName="dish" schemaName="main">
+        <createTable tableName="vote" schemaName="epam">
             <column name="id" type="varchar(256)">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
             <column name="user_id" type="varchar(256)">
-                <constraints foreignKeyName="fk_user_id" references="users(id)" nullable="false"/>
+                <constraints foreignKeyName="fk_user_id" references="epam.users(id)" nullable="false"/>
             </column>
             <column name="restaurant_id" type="varchar(256)">
-                <constraints foreignKeyName="fk_restaurant_id" references="restaurant(id)" nullable="false"/>
+                <constraints foreignKeyName="fk_restaurant_id" references="epam.restaurant(id)" nullable="false"/>
             </column>
             <column name="created_user" type="varchar(256)">
                 <constraints nullable="false"/>
@@ -22,7 +22,7 @@
             <column name="updated_user" type="varchar(256)">
                 <constraints nullable="true"/>
             </column>
-            <column name="created_date" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
                 <constraints nullable="false"/>
             </column>
             <column name="updated_date" type="timestamp"/>
