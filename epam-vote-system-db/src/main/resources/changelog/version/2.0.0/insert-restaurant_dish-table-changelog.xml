@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2021-09-05-13" author="sapar">
+        <insert tableName="restraunrant_dish">
+            <column name="id" value="1"/>
+            <column name="price" value="5.55"/>
+            <column name="restaurant_id" value="1"/>
+            <column name="dish_id" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

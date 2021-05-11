@@ -10,4 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>epam-vote-system-repository</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>epam-vote-system-db</artifactId>
+            <version>${vote.system.version}</version>
+        </dependency>
+    </dependencies>
 </project>
