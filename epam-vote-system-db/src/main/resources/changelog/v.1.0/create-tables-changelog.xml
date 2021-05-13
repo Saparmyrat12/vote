@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2021-07-05-07" author="sapar">
+        <createTable tableName="dish" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_user" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_user" type="varchar(256)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
+            <column name="record_version" type="int" defaultValue="1"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="dish" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-06" author="sapar">
+        <createTable tableName="restaurant" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="varchar(256)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="address" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_user" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_user" type="varchar(256)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
+            <column name="record_version" type="int" defaultValue="1"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="restaurant" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-08" author="sapar">
+        <createTable tableName="restaurant_dish_map" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="price" type="numeric(7,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_restaurant_id" references="epam.restaurant(id)" nullable="false"/>
+            </column>
+            <column name="dish_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_dish_id" references="epam.dish(id)" nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="restaurant_dish_map" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-04" author="sapar">
+        <createTable tableName="role" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="role" type="varchar(256)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="role" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-03" author="sapar">
+        <createTable tableName="users" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="varchar(256)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="varchar(256)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_user" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_user" type="varchar(256)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
+            <column name="record_version" type="int" defaultValue="1"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="users" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-05" author="sapar">
+        <createTable tableName="user_role_map" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="user_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_user_id" references="epam.users(id)" nullable="false"/>
+            </column>
+            <column name="role_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_role_id" references="epam.role(id)" nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="user_role_map" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-07-05-09" author="sapar">
+        <createTable tableName="vote" schemaName="epam">
+            <column name="id" type="varchar(256)">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="user_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_user_id" references="epam.users(id)" nullable="false"/>
+            </column>
+            <column name="restaurant_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_restaurant_id" references="epam.restaurant(id)" nullable="false"/>
+            </column>
+            <column name="created_user" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_user" type="varchar(256)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
+            <column name="record_version" type="int" defaultValue="1"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="vote" schemaName="epam"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
