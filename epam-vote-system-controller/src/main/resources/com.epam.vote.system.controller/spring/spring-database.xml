@@ -7,18 +7,18 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:com.epam.vote.system.controller/spring/application.properties"/>
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://localhost:5432/epam"/>
-        <property name="username" value="postgres"/>
-        <property name="password" value="sapar12"/>
+        <property name="driverClassName" value="${spring.datasource.driver}"/>
+        <property name="url" value="${spring.datasource.url}"/>
+        <property name="username" value="${spring.datasource.username}"/>
+        <property name="password" value="${spring.datasource.password}"/>
     </bean>
 
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase" lazy-init="false">
         <property name="dataSource" ref="dataSource"/>
-        <!--            <property name="changeLog" value="com.epam.vote.system.controller/spring/changelog.xml"/>-->
-        <property name="changeLog" value="changelog/changelog.xml"/>
+        <property name="changeLog" value="${spring.datasource.changeLogFile}"/>
     </bean>
 </beans>

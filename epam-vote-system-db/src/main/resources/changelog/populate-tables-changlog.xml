@@ -5,12 +5,12 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="version/2.0.0/insert-dish-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-restaurant-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-restaurant_dish-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-role-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-users-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-user_role-table-changelog.xml" relativeToChangelogFile="true"/>
-    <include file="version/2.0.0/insert-vote-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-dish-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-restaurant-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-restaurant_dish-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-role-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-users-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-user_role-table-changelog.xml" relativeToChangelogFile="true"/>
+    <include file="populate-tables/insert-vote-table-changelog.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

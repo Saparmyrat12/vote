@@ -5,13 +5,19 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="2021-09-05-13" author="sapar">
-        <insert tableName="restaurant_dish" schemaName="epam">
+    <changeSet id="2021-09-05-17" author="sapar">
+        <insert tableName="vote">
             <column name="id" value="1"/>
-            <column name="price" value="5.55"/>
+            <column name="user_id" value="1"/>
             <column name="restaurant_id" value="1"/>
-            <column name="dish_id" value="1"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
         </insert>
+        <rollback>
+            <delete tableName="vote">
+                <where>id = '1'</where>
+            </delete>
+        </rollback>
     </changeSet>
 
 </databaseChangeLog>

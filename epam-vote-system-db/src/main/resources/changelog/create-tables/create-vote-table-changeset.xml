@@ -5,19 +5,16 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="2021-07-05-03" author="sapar">
-        <createTable tableName="users" schemaName="epam">
+    <changeSet id="2021-07-05-09" author="sapar">
+        <createTable tableName="vote">
             <column name="id" type="varchar(256)">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
-            <column name="name" type="varchar(256)">
-                <constraints nullable="true"/>
+            <column name="user_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_user_id" references="users(id)" nullable="false"/>
             </column>
-            <column name="email" type="varchar(256)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="password" type="varchar(256)">
-                <constraints nullable="false"/>
+            <column name="restaurant_id" type="varchar(256)">
+                <constraints foreignKeyName="fk_restaurant_id" references="restaurant(id)" nullable="false"/>
             </column>
             <column name="created_user" type="varchar(256)">
                 <constraints nullable="false"/>
@@ -31,6 +28,9 @@
             <column name="updated_date" type="timestamp"/>
             <column name="record_version" type="int" defaultValue="1"/>
         </createTable>
+        <rollback>
+            <dropTable tableName="vote"/>
+        </rollback>
     </changeSet>
 
 

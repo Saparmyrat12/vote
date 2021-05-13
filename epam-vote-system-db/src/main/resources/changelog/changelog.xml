@@ -5,18 +5,19 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-<changeSet id="2021-07-05-00" author="sapar">
+    <changeSet id="2021-07-05-00" author="sapar">
         <tagDatabase tag="db_init"/>
     </changeSet>
-    <include relativeToChangelogFile="true" file="init-database-changelog.xml"/>
+
+    <include file="create-tables-changelog.xml" relativeToChangelogFile="true"/>
     <changeSet id="2021-07-05-01" author="sapar">
         <tagDatabase tag="create_tables"/>
     </changeSet>
-    <include file="create-tables-changelog.xml" relativeToChangelogFile="true"/>
 
+    <include file="populate-tables-changlog.xml" relativeToChangelogFile="true"/>
     <changeSet id="2021-07-05-02" author="sapar">
         <tagDatabase tag="populate_tables"/>
     </changeSet>
-    <include file="populate-tables-changlog.xml" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>
