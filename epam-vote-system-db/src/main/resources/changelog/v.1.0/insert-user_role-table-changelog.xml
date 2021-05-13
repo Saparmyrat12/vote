@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2021-09-05-16" author="sapar">
+        <insert tableName="user_role_map" schemaName="epam">
+            <column name="id" value="f2416730-4fb1-4772-813f-cfca551270a4"/>
+            <column name="user_id" value="2602eae0-a132-4f86-b72f-aca24a9ab4d6"/>
+            <column name="role_id" value="b1a95589-22a2-4061-8af6-e3b2db31ae56"/>
+        </insert>
+        <rollback>
+            <delete tableName="user_role_map" schemaName="epam">
+                <where>id = 'f2416730-4fb1-4772-813f-cfca551270a4'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

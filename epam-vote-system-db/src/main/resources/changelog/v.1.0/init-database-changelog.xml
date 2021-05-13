@@ -10,5 +10,4 @@
             CREATE SCHEMA IF NOT EXISTS epam
         </sql>
     </changeSet>
-
 </databaseChangeLog>
