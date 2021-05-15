@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2021-09-05-11" author="sapar">
+        <insert tableName="dish" schemaName="epam">
+            <column name="id" value="550b17ef-389a-47a1-af76-1fb53373da68"/>
+            <column name="name" value="pissa"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
+        <insert tableName="dish" schemaName="epam">
+            <column name="id" value="824e2b1d-9c8c-426c-9bb2-4eed4acfd474"/>
+            <column name="name" value="cake"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="dish" schemaName="epam">
+                <where>id = '550b17ef-389a-47a1-af76-1fb53373da68'</where>
+            </delete>
+            <delete tableName="dish" schemaName="epam">
+                <where>id = '824e2b1d-9c8c-426c-9bb2-4eed4acfd474'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-12" author="sapar">
+        <insert tableName="restaurant" schemaName="epam">
+            <column name="id"  value="39c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
+            <column name="name" value="Burger King"/>
+            <column name="address" value="881 Doe Crossing Lane"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="restaurant" schemaName="epam">
+                <where>id = '39c1abd4-e9dc-43a0-90aa-441be8e9f8e7'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-13" author="sapar">
+        <insert tableName="restaurant_dish_map" schemaName="epam">
+            <column name="id" value="02a50266-4679-4073-aeee-95b52b718e89"/>
+            <column name="price" value="5.55"/>
+            <column name="restaurant_id" value="39c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
+            <column name="dish_id" value="550b17ef-389a-47a1-af76-1fb53373da68"/>
+        </insert>
+        <rollback>
+            <delete tableName="restaurant_dish_map" schemaName="epam">
+                <where>id = '02a50266-4679-4073-aeee-95b52b718e89'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-14" author="sapar">
+        <insert tableName="role" schemaName="epam">
+            <column name="id" value="b1a95589-22a2-4061-8af6-e3b2db31ae56"/>
+            <column name="role" value="USER"/>
+        </insert>
+        <rollback>
+            <delete tableName="role" schemaName="epam">
+                <where>id = 'b1a95589-22a2-4061-8af6-e3b2db31ae56'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-15" author="sapar">
+        <insert tableName="users" schemaName="epam">
+            <column name="id" value="2602eae0-a132-4f86-b72f-aca24a9ab4d6"/>
+            <column name="name" value="sapar"/>
+            <column name="email" value="sapar@gmail.com"/>
+            <column name="password" value="12345"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="users" schemaName="epam">
+                <where>id = '2602eae0-a132-4f86-b72f-aca24a9ab4d6'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-16" author="sapar">
+        <insert tableName="user_role_map" schemaName="epam">
+            <column name="id" value="f2416730-4fb1-4772-813f-cfca551270a4"/>
+            <column name="user_id" value="2602eae0-a132-4f86-b72f-aca24a9ab4d6"/>
+            <column name="role_id" value="b1a95589-22a2-4061-8af6-e3b2db31ae56"/>
+        </insert>
+        <rollback>
+            <delete tableName="user_role_map" schemaName="epam">
+                <where>id = 'f2416730-4fb1-4772-813f-cfca551270a4'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-09-05-17" author="sapar">
+        <insert tableName="vote" schemaName="epam">
+            <column name="id" value="7e103b3c-bba8-43a9-a1a9-449547040d7e"/>
+            <column name="user_id" value="2602eae0-a132-4f86-b72f-aca24a9ab4d6"/>
+            <column name="restaurant_id" value="39c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="vote" schemaName="epam">
+                <where>id = '7e103b3c-bba8-43a9-a1a9-449547040d7e'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

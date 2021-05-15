@@ -24,6 +24,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <checkstyle-version>3.0.0</checkstyle-version>
         <spring.version>5.3.6</spring.version>
+        <liquibase.version>4.3.5</liquibase.version>
+        <postgresql.version>42.2.20</postgresql.version>
     </properties>
 
     <build>
