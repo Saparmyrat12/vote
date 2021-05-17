@@ -40,3 +40,6 @@
         6. Will be created script to populate tables (populate-tables-changlog.xml).
         7. Will be added file application.properties.
         8. init-database-changelog.xml file should be contains script to create new schema.
+
+##### Task[1-0004: Create REST to get list of all restaurants]
+     As user of application I want to get list of all restaurants in the system.
