@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.epam.vote.repository.RestaurantDao">
+    <resultMap id="RestaurantResultMap" type="com.epam.vote.domain.Restaurant">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="created_user" jdbcType="VARCHAR" property="created_user"/>
+        <result column="updated_user" jdbcType="VARCHAR" property="updated_user"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="created_date"/>
+        <result column="updated_date" jdbcType="TIMESTAMP" property="updated_date"/>
+        <result column="record_version" jdbcType="INTEGER" property="record_version"/>
+    </resultMap>
+
+    <select id="selectAllRestaurant" resultMap="RestaurantResultMap">
+        select * from epam.restaurant
+    </select>
+</mapper>
