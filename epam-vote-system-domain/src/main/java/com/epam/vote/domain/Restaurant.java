@@ -1,4 +1,5 @@
 /**
+ * This class describe table Restaurant.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -14,11 +15,26 @@ public class Restaurant {
     private String id;
     private String name;
     private String address;
-    private String created_user;
-    private String updated_user;
-    private LocalDate created_date;
-    private LocalDate updated_date;
-    private int record_version;
+    private String createdUser;
+    private String updatedUser;
+    private LocalDate createdDate;
+    private LocalDate updatedDate;
+    private int recordVersion;
+
+    public Restaurant() {
+    }
+
+    public Restaurant(String id, String name, String address, String createdUser, String updatedUser,
+                      LocalDate createdDate, LocalDate updatedDate, int recordVersion) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.createdUser = createdUser;
+        this.updatedUser = updatedUser;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.recordVersion = recordVersion;
+    }
 
     public String getId() {
         return id;
@@ -44,58 +60,45 @@ public class Restaurant {
         this.address = address;
     }
 
-    public String getCreated_user() {
-        return created_user;
+    public String getCreatedUser() {
+        return createdUser;
     }
 
-    public void setCreated_user(String created_user) {
-        this.created_user = created_user;
+    public void setCreatedUser(String createdUser) {
+        this.createdUser = createdUser;
     }
 
-    public String getUpdated_user() {
-        return updated_user;
+    public String getUpdatedUser() {
+        return updatedUser;
     }
 
-    public void setUpdated_user(String updated_user) {
-        this.updated_user = updated_user;
+    public void setUpdatedUser(String updatedUser) {
+        this.updatedUser = updatedUser;
     }
 
-    public LocalDate getCreated_date() {
-        return created_date;
+    public LocalDate getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(LocalDate created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public LocalDate getUpdated_date() {
-        return updated_date;
+    public LocalDate getUpdatedDate() {
+        return updatedDate;
     }
 
-    public void setUpdated_date(LocalDate updated_date) {
-        this.updated_date = updated_date;
+    public void setUpdatedDate(LocalDate updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
-    public int getRecord_version() {
-        return record_version;
+    public int getRecordVersion() {
+        return recordVersion;
     }
 
-    public void setRecord_version(int record_version) {
-        this.record_version = record_version;
+    public void setRecordVersion(int recordVersion) {
+        this.recordVersion = recordVersion;
     }
 
-    public Restaurant(String id, String name, String address, String created_user, String updated_user,
-                      LocalDate created_date, LocalDate updated_date, int record_version) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.created_user = created_user;
-        this.updated_user = updated_user;
-        this.created_date = created_date;
-        this.updated_date = updated_date;
-        this.record_version = record_version;
-    }
 
-    public Restaurant() {
-    }
 }

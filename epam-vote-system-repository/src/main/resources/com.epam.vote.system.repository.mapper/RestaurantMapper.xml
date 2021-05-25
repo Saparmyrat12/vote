@@ -7,11 +7,11 @@
         <result column="id" jdbcType="VARCHAR" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="address" jdbcType="VARCHAR" property="address"/>
-        <result column="created_user" jdbcType="VARCHAR" property="created_user"/>
-        <result column="updated_user" jdbcType="VARCHAR" property="updated_user"/>
-        <result column="created_date" jdbcType="TIMESTAMP" property="created_date"/>
-        <result column="updated_date" jdbcType="TIMESTAMP" property="updated_date"/>
-        <result column="record_version" jdbcType="INTEGER" property="record_version"/>
+        <result column="createdUser" jdbcType="VARCHAR" property="created_user"/>
+        <result column="updatedUser" jdbcType="VARCHAR" property="updated_user"/>
+        <result column="createdDate" jdbcType="TIMESTAMP" property="created_date"/>
+        <result column="updatedDate" jdbcType="TIMESTAMP" property="updated_date"/>
+        <result column="recordVersion" jdbcType="INTEGER" property="record_version"/>
     </resultMap>
 
     <select id="selectAllRestaurant" resultMap="RestaurantResultMap">

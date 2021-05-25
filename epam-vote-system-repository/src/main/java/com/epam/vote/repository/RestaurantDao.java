@@ -1,4 +1,5 @@
 /**
+ * This class describe method for Restaurant.
  * <p/>
  * Copyright (C) 2021
  * <p/>
