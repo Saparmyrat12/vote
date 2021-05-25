@@ -26,6 +26,8 @@
         <spring.version>5.3.6</spring.version>
         <liquibase.version>4.3.5</liquibase.version>
         <postgresql.version>42.2.20</postgresql.version>
+        <mybatis.version>3.5.7</mybatis.version>
+        <mybatis.spring.version>2.0.6</mybatis.spring.version>
     </properties>
 
     <build>
@@ -46,6 +48,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
