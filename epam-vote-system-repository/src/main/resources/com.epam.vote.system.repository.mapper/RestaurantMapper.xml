@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.epam.vote.repository.RestaurantDao">
+<mapper namespace="com.epam.vote.repository.IRestaurantDao">
     <resultMap id="RestaurantResultMap" type="com.epam.vote.domain.Restaurant">
         <result column="id" jdbcType="VARCHAR" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>

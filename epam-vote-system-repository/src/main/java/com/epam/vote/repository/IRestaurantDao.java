@@ -1,5 +1,4 @@
 /**
- * This class describe method for Restaurant.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -14,7 +13,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * This class describe method for Restaurant.
+ */
 @Repository
-public interface RestaurantDao {
+public interface IRestaurantDao {
     List<Restaurant> selectAllRestaurant();
 }

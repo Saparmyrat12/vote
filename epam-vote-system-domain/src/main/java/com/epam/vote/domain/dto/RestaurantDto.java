@@ -1,5 +1,4 @@
 /**
- * This class is used for dto Restaurant.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -10,6 +9,9 @@ package com.epam.vote.domain.dto;
 
 import com.epam.vote.domain.Restaurant;
 
+/**
+ * This class is used for dto Restaurant.
+ */
 public class RestaurantDto {
     private String id;
     private String name;

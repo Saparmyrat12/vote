@@ -1,5 +1,4 @@
 /**
- * This class describe table Restaurant.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -10,6 +9,9 @@ package com.epam.vote.domain;
 
 import java.time.LocalDate;
 
+/**
+ * This class describe table Restaurant.
+ */
 public class Restaurant {
 
     private String id;

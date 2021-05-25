@@ -1,5 +1,4 @@
 /**
- * This class handles requests from the client.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -20,6 +19,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+/**
+ * This class handles requests from the client.
+ */
 @RestController
 @RequestMapping("/api/restaurant")
 public class RestaurantController {
@@ -29,8 +31,8 @@ public class RestaurantController {
 
     @GetMapping
     public ResponseEntity<List<RestaurantDto>> get() {
-        List<RestaurantDto> entities = StreamSupport.stream
-                (restaurantService.selectAllRestaurant().spliterator(), false)
+        List<RestaurantDto> entities = StreamSupport
+                .stream(restaurantService.selectAllRestaurant().spliterator(), false)
                 .map(RestaurantDto::new).collect(Collectors.toList());
         if (entities.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
