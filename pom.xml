@@ -28,6 +28,10 @@
         <postgresql.version>42.2.20</postgresql.version>
         <mybatis.version>3.5.7</mybatis.version>
         <mybatis.spring.version>2.0.6</mybatis.spring.version>
+        <build.helper.maven.plugin.version>3.0.0</build.helper.maven.plugin.version>
+        <postgresql.embedded.version>2.10</postgresql.embedded.version>
+        <maven.failsafe.plugin.version>3.0.0-M1</maven.failsafe.plugin.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <build>
