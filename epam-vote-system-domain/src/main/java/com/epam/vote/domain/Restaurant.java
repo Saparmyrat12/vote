@@ -1,20 +1,18 @@
+package com.epam.vote.domain;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
 /**
+ * Restaurant domain.
  * <p/>
  * Copyright (C) 2021
  * <p/>
  * Date: май 19, 2021
  * @author Sapar
  */
-package com.epam.vote.domain;
+public class Restaurant extends AbstractDomain {
 
-import java.time.LocalDate;
-
-/**
- * This class describe table Restaurant.
- */
-public class Restaurant {
-
-    private String id;
     private String name;
     private String address;
     private String createdUser;
@@ -26,9 +24,8 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(String id, String name, String address, String createdUser, String updatedUser,
+    public Restaurant(String name, String address, String createdUser, String updatedUser,
                       LocalDate createdDate, LocalDate updatedDate, int recordVersion) {
-        this.id = id;
         this.name = name;
         this.address = address;
         this.createdUser = createdUser;
@@ -36,14 +33,6 @@ public class Restaurant {
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
         this.recordVersion = recordVersion;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -102,5 +91,40 @@ public class Restaurant {
         this.recordVersion = recordVersion;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Restaurant that = (Restaurant) o;
+        return recordVersion == that.recordVersion && name.equals(that.name) && address
+                .equals(that.address) && createdUser.equals(that.createdUser) && updatedUser
+                .equals(that.updatedUser) && createdDate
+                .equals(that.createdDate) && updatedDate.equals(that.updatedDate);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, address, createdUser, updatedUser,
+                createdDate, updatedDate, recordVersion);
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", createdUser='" + createdUser + '\'' +
+                ", updatedUser='" + updatedUser + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                ", recordVersion=" + recordVersion +
+                '}';
+    }
 }

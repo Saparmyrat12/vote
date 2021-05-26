@@ -23,12 +23,6 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${liquibase.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

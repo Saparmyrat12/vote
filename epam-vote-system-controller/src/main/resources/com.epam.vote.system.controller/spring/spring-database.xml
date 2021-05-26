@@ -22,15 +22,10 @@
         <property name="changeLog" value="${spring.datasource.changeLogFile}"/>
     </bean>
 
-    <bean name="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:com.epam.vote.system.controller/spring/mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath*:com.epam.vote.system.repository.mapper/*.xml"/>
+        <property name="configLocation" value="classpath:com.epam.vote.system.repository/mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath*:com.epam.vote.system.repository/mapper/*.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

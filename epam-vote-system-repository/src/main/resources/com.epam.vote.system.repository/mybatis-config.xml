@@ -4,8 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <settings>
-        <setting name="cacheEnabled" value="false"/>
-        <setting name="lazyLoadingEnabled" value="false"/>
-    </settings>
+    <typeAliases>
+        <typeAlias type="com.epam.vote.domain.Restaurant" alias="Restaurant"/>
+    </typeAliases>
 </configuration>

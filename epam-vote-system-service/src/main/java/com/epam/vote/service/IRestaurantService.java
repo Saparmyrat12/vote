@@ -1,0 +1,16 @@
+package com.epam.vote.service;
+
+import com.epam.vote.domain.Restaurant;
+import java.util.List;
+
+/**
+ * Interface Restaurant service.
+ * <p/>
+ * Copyright (C) 2021
+ * <p/>
+ * Date: май 26, 2021
+ * @author Sapar
+ */
+public interface IRestaurantService {
+    List<Restaurant> getAllRestaurants();
+}
