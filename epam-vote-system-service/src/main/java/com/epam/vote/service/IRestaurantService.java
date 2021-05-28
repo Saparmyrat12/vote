@@ -12,5 +12,10 @@ import java.util.List;
  * @author Sapar
  */
 public interface IRestaurantService {
+
+    /**
+     *This method return list all restaurants.
+     * @return all restaurants.
+     */
     List<Restaurant> getAllRestaurants();
 }
