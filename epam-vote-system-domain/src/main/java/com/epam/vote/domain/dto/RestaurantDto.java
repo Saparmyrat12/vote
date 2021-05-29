@@ -17,6 +17,9 @@ public class RestaurantDto {
     private String name;
     private String address;
 
+    public RestaurantDto() {
+    }
+
     public RestaurantDto(Restaurant restaurant) {
         this.id = restaurant.getId();
         this.name = restaurant.getName();

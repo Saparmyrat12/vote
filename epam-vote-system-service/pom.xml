@@ -12,7 +12,6 @@
     <artifactId>epam-vote-system-service</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>com.epam</groupId>
             <artifactId>epam-vote-system-repository</artifactId>

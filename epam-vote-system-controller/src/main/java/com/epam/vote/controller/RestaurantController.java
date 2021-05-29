@@ -8,8 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Restaurant controller.
@@ -23,15 +27,18 @@ import java.util.stream.Collectors;
 @RequestMapping("/restaurant")
 public class RestaurantController {
 
+    private static final Logger logger = LoggerFactory.getLogger(RestaurantController.class);
+
     @Autowired
     private RestaurantService restaurantService;
 
     @GetMapping
     public ResponseEntity<List<RestaurantDto>> getAllRestaurants() {
+        logger.info("getAllRestaurants is started");
         List<RestaurantDto> restaurantDtos = restaurantService.getAllRestaurants().stream()
                 .map(RestaurantDto::new).collect(Collectors.toList());
         return restaurantDtos != null && !restaurantDtos.isEmpty()
                 ? new ResponseEntity<>(restaurantDtos, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                :new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
