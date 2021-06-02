@@ -21,6 +21,23 @@ public abstract class BaseEntity<T> {
     private LocalDate updatedDate;
     private int recordVersion;
 
+    public BaseEntity() {
+    }
+
+    public BaseEntity(T id) {
+        this.id = id;
+    }
+
+    public BaseEntity(T id, String createdUser, String updatedUser, LocalDate createdDate,
+                      LocalDate updatedDate, int recordVersion) {
+        this.id = id;
+        this.createdUser = createdUser;
+        this.updatedUser = updatedUser;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.recordVersion = recordVersion;
+    }
+
     public T getId() {
         return id;
     }

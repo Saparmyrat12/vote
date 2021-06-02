@@ -23,7 +23,7 @@ public class RestaurantDto {
     public RestaurantDto(Restaurant restaurant) {
         this.id = restaurant.getId();
         this.name = restaurant.getName();
-        this.address = restaurant.getName();
+        this.address = restaurant.getAddress();
     }
 
     public String getId() {
