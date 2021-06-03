@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
- * Test Restaurant service
+ * Test Restaurant service.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -45,6 +45,6 @@ public class RestaurantServiceTest {
         assertEquals("Burger King", restaurant.getName());
         assertEquals("881 Doe Crossing Lane", restaurant.getAddress());
         assertNotNull(restaurantService.getAllRestaurants());
-        verify(restaurantRepository, times(2)).findAllRestaurants();
+        verify(restaurantRepository, times(4)).findAllRestaurants();
     }
 }

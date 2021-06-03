@@ -16,8 +16,8 @@ import java.util.List;
 public interface IRestaurantRepository {
 
     /**
-     *This method return find all restaurants.
-     * @return all restaurants.
+     * This method find all restaurants.
+     * @return list of {@link Restaurant}'s.
      */
     List<Restaurant> findAllRestaurants();
 }

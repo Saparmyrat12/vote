@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Restaurant service.
+ * Implementation of {@link IRestaurantService}.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -28,7 +28,7 @@ public class RestaurantService implements IRestaurantService {
 
     @Override
     public List<Restaurant> getAllRestaurants() {
-        LOGGER.info("getAllRestaurants is started");
+        LOGGER.info("getAllRestaurants size = {}", restaurantRepository.findAllRestaurants().size());
         return restaurantRepository.findAllRestaurants();
     }
 }

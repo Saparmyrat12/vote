@@ -4,6 +4,7 @@ import com.epam.vote.domain.dto.RestaurantDto;
 import com.epam.vote.service.impl.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
  * @author Sapar
  */
 @RestController
-@RequestMapping("/restaurant")
+@RequestMapping(value = "/restaurant", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestaurantController {
 
     @Autowired
