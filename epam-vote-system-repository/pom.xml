@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.epam</groupId>
-            <artifactId>epam-vote-system-db</artifactId>
+            <artifactId>epam-vote-system-domain</artifactId>
             <version>${vote.system.version}</version>
         </dependency>
         <dependency>
@@ -31,11 +31,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>ru.yandex.qatools.embed</groupId>
