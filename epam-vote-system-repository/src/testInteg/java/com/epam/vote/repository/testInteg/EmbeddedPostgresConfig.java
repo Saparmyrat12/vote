@@ -18,12 +18,11 @@ import java.io.IOException;
 
 /**
  * Configuration for embedded postgres database.
- * <p>
- * Copyright (C) 2018 epam.com
- * <p>
- * Date: Nov 30, 2018
- *
- * @author Anton Azarenka
+ * <p/>
+ * Copyright (C) 2021
+ * <p/>
+ * Date: июнь 05, 2021
+ * @author Sapar
  */
 @Configuration
 public class EmbeddedPostgresConfig {
@@ -57,9 +56,6 @@ public class EmbeddedPostgresConfig {
         return new SimpleDriverDataSource(new Driver(), url);
     }
 
-    /**
-     * Change this property to your own that all tests will work
-     */
     @Bean
     public SqlSessionFactoryBean sqlSessionFactory(ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();

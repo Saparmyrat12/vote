@@ -8,6 +8,7 @@
                             http://www.liquibase.org/xml/ns/dbchangelog-ext
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
+<!--    added for RestaurantRepositoryTest-->
     <changeSet id="2021-05-06-2" author="sapar">
         <insert tableName="restaurant" schemaName="epam">
             <column name="id"  value="12c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
