@@ -1,7 +1,9 @@
 package com.epam.vote.repository.testInteg;
 
+import com.epam.vote.repository.IRestaurantRepository;
 import liquibase.integration.spring.SpringLiquibase;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.postgresql.Driver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -67,5 +69,13 @@ public class EmbeddedPostgresConfig {
         sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:com.epam.vote.system.repository/mybatis-config.xml"));
         sqlSessionFactory.afterPropertiesSet();
         return sqlSessionFactory;
+    }
+
+    @Bean
+    public MapperFactoryBean<IRestaurantRepository> restaurantRepository(ApplicationContext applicationContext) throws Exception {
+        MapperFactoryBean<IRestaurantRepository> repository = new MapperFactoryBean<>();
+        repository.setMapperInterface(IRestaurantRepository.class);
+        repository.setSqlSessionFactory(sqlSessionFactory(applicationContext).getObject());
+        return repository;
     }
 }
