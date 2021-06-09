@@ -1,9 +1,7 @@
 package com.epam.vote.repository.testInteg;
 
-
-
+import com.epam.vote.repository.IRestaurantRepository;
 import liquibase.integration.spring.SpringLiquibase;
-
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.postgresql.Driver;
@@ -12,22 +10,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-
-import java.io.IOException;
-
-import javax.sql.DataSource;
-
 import ru.yandex.qatools.embed.postgresql.EmbeddedPostgres;
 import ru.yandex.qatools.embed.postgresql.distribution.Version;
 
+import javax.sql.DataSource;
+import java.io.IOException;
+
 /**
  * Configuration for embedded postgres database.
- * <p>
- * Copyright (C) 2018 epam.com
- * <p>
- * Date: Nov 30, 2018
- *
- * @author Anton Azarenka
+ * <p/>
+ * Copyright (C) 2021
+ * <p/>
+ * Date: июнь 05, 2021
+ * @author Sapar
  */
 @Configuration
 public class EmbeddedPostgresConfig {
@@ -60,17 +55,23 @@ public class EmbeddedPostgresConfig {
     public DataSource dataSource() {
         return new SimpleDriverDataSource(new Driver(), url);
     }
-/**
- * Change this property to your own that all tests will work
- */
+
     @Bean
     public SqlSessionFactoryBean sqlSessionFactory(ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-       // sqlSessionFactory.setMapperLocations(applicationContext.getResources("classpath:com.azarenka.jc.repository.mapper/*.xml"));
-       // sqlSessionFactory.setTypeAliasesPackage("com.azarenka.jc.domain");
+        sqlSessionFactory.setMapperLocations(applicationContext.getResources("classpath:com.epam.vote.system.repository/mapper/*.xml"));
+        sqlSessionFactory.setTypeAliasesPackage("classpath:com.epam.vote.domain");
         sqlSessionFactory.setDataSource(dataSource());
-       // sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:mybatis.xml"));
+        sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:com.epam.vote.system.repository/mybatis-config.xml"));
         sqlSessionFactory.afterPropertiesSet();
         return sqlSessionFactory;
+    }
+
+    @Bean
+    public MapperFactoryBean<IRestaurantRepository> restaurantRepository(ApplicationContext applicationContext) throws Exception {
+        MapperFactoryBean<IRestaurantRepository> repository = new MapperFactoryBean<>();
+        repository.setMapperInterface(IRestaurantRepository.class);
+        repository.setSqlSessionFactory(sqlSessionFactory(applicationContext).getObject());
+        return repository;
     }
 }
