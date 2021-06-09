@@ -9,5 +9,5 @@
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <include file="changelog/v.1.0/init-database-changelog.xml"/>
     <include file="changelog/v.1.0/create-tables-changelog.xml"/>
-    <include file="test_IRestaurantRepository.xml"/>
+    <include file="restaurant-repository-test-data.xml"/>
 </databaseChangeLog>
