@@ -8,7 +8,7 @@
 - [[1-0002: Create infrastructure for project]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0002-create-infrastructure-for-project)
 - [[1-0003: Create infrastructure for database and create db for the project]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0003-create-infrastructure-for-database-and-create-db-for-the-project)
 - [[1-0004: Create REST to get list of all restaurants]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0004-create-rest-to-get-list-of-all-restaurants)
-- [[1-0005: Create REST to get list of all restaurants]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0005-create-rest-to-get-menu-of-restaurant)
+- [[1-0005: Create REST to get menu of restaurant]](https://github.com/AzarenkaA/vote/blob/tasks/tasks.md#task1-0005-create-rest-to-get-menu-of-restaurant)
 
 ##### Task[1-0001: Fork and setting git]  
     1. Make fork of project to personal repository.
