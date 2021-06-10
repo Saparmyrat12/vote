@@ -6,5 +6,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.epam.vote.domain.Restaurant" alias="Restaurant"/>
+        <typeAlias type="com.epam.vote.domain.Menu" alias="Menu"/>
     </typeAliases>
 </configuration>
