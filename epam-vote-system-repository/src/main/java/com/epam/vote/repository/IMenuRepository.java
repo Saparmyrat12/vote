@@ -16,7 +16,7 @@ import java.util.List;
 public interface IMenuRepository {
 
     /**
-     * This method find menu of restaurant.
+     * This method finds menu of restaurant.
      * @return list of {@link Menu}'s.
      */
     List<Menu> findMenuOfRestaurant(String nameRestaurant);
