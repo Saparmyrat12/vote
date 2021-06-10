@@ -11,10 +11,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
- * Test IRestaurantRepository.
+ * Test for {@link IRestaurantRepository}.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -29,9 +28,9 @@ public class RestaurantRepositoryTest {
     private IRestaurantRepository repository;
 
     @Test
-    public void findAllRestaurants() {
+    public void testFindAllRestaurants() {
         List<Restaurant> restaurants = repository.findAllRestaurants();
-        assertEquals(2, restaurants.size());
+        assertEquals(1, restaurants.size());
         Restaurant restaurant = restaurants.get(0);
         assertEquals("12c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
         assertEquals("KFC", restaurant.getName());

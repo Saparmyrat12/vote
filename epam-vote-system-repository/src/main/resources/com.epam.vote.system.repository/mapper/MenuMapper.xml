@@ -15,12 +15,13 @@
     </resultMap>
 
     <select id="findMenuOfRestaurant" resultMap="MenuResultMap">
-        select d.id as id, d.name as name, rd.price as price
+        select
+            d.id,
+            d.name,
+            rd.price
         from epam.dish as d
-                 inner join epam.restaurant_dish_map as rd
-                            on d.id = rd.dish_id
-                 inner join epam.restaurant as r
-                            on r.id = rd.restaurant_id
+        inner join epam.restaurant_dish_map as rd on d.id = rd.dish_id
+        inner join epam.restaurant as r on r.id = rd.restaurant_id
         where r.name = #{nameRestaurant}
     </select>
 </mapper>

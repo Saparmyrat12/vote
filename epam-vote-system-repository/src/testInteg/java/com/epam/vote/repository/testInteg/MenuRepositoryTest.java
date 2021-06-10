@@ -7,12 +7,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * Test IMenuRepository.
+ * Test for {@link IMenuRepository}.
  * <p/>
  * Copyright (C) 2021
  * <p/>
@@ -27,12 +29,12 @@ public class MenuRepositoryTest {
     private IMenuRepository repository;
 
     @Test
-    public void findMenuOfRestaurant() {
-        List<Menu> menuList = repository.findMenuOfRestaurant("Burger King");
+    public void testFindMenuOfRestaurant() {
+        List<Menu> menuList = repository.findMenuOfRestaurant("KFC");
         assertEquals(1, menuList.size());
         Menu menu = menuList.get(0);
         assertEquals("550b17ef-389a-47a1-af76-1fb53373da68", menu.getId());
-        assertEquals("pissa", menu.getName());
-       assertEquals(5.55, menu.getPrice(), 0.01);
+        assertEquals("pizza", menu.getName());
+        assertEquals(BigDecimal.valueOf(5.55), menu.getPrice());
     }
 }

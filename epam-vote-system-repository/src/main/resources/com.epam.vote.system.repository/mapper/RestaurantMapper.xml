@@ -15,6 +15,10 @@
     </resultMap>
 
     <select id="findAllRestaurants" resultMap="RestaurantResultMap">
-        select id, name, address from epam.restaurant
+        select
+            id,
+            name,
+            address
+        from epam.restaurant
     </select>
 </mapper>

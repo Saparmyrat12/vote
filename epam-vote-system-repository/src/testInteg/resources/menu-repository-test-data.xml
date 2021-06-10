@@ -9,32 +9,21 @@
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="2021-06-10-2" author="sapar">
-        <comment>"added for MenuRepositoryTest"</comment>
+        <comment>"test data for testFindMenuOfRestaurant"</comment>
         <insert tableName="dish" schemaName="epam">
             <column name="id" value="550b17ef-389a-47a1-af76-1fb53373da68"/>
-            <column name="name" value="pissa"/>
-            <column name="created_user" value="system"/>
-            <column name="record_version" value="1"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="2021-06-10-1" author="sapar">
-        <comment>"added for MenRepositoryTest"</comment>
-        <insert tableName="restaurant" schemaName="epam">
-            <column name="id"  value="39c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
-            <column name="name" value="Burger King"/>
-            <column name="address" value="881 Doe Crossing Lane"/>
+            <column name="name" value="pizza"/>
             <column name="created_user" value="system"/>
             <column name="record_version" value="1"/>
         </insert>
     </changeSet>
 
     <changeSet id="2021-06-10-3" author="sapar">
-        <comment>"added for MenuRepositoryTest"</comment>
+        <comment>"test data for testFindMenuOfRestaurant"</comment>
         <insert tableName="restaurant_dish_map" schemaName="epam">
             <column name="id" value="02a50266-4679-4073-aeee-95b52b718e89"/>
             <column name="price" value="5.55"/>
-            <column name="restaurant_id" value="39c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
+            <column name="restaurant_id" value="12c1abd4-e9dc-43a0-90aa-441be8e9f8e7"/>
             <column name="dish_id" value="550b17ef-389a-47a1-af76-1fb53373da68"/>
         </insert>
     </changeSet>

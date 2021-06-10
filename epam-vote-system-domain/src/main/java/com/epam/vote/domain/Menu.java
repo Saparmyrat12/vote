@@ -1,6 +1,6 @@
 package com.epam.vote.domain;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -14,20 +14,13 @@ import java.util.Objects;
 public class Menu extends BaseEntity<String> {
 
     private String name;
-    private float price;
+    private BigDecimal price;
 
     public Menu() {
     }
 
-    public Menu(String id, String name, float price) {
+    public Menu(String id, String name, BigDecimal price) {
         super(id);
-        this.name = name;
-        this.price = price;
-    }
-
-    public Menu(String id, String name, float price, String createdUser, String updatedUser,
-                LocalDate createdDate, LocalDate updatedDate, int recordVersion) {
-        super(id, createdUser, updatedUser, createdDate, updatedDate, recordVersion);
         this.name = name;
         this.price = price;
     }
@@ -40,11 +33,11 @@ public class Menu extends BaseEntity<String> {
         this.name = name;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -60,7 +53,7 @@ public class Menu extends BaseEntity<String> {
             return false;
         }
         Menu menu = (Menu) o;
-        return Float.compare(menu.price, price) == 0 && name.equals(menu.name);
+        return name.equals(menu.name) && price.equals(menu.price);
     }
 
     @Override
