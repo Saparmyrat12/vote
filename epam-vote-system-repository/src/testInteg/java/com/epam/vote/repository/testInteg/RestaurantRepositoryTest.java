@@ -31,7 +31,7 @@ public class RestaurantRepositoryTest {
     @Test
     public void findAllRestaurants() {
         List<Restaurant> restaurants = repository.findAllRestaurants();
-        assertEquals(1, restaurants.size());
+        assertEquals(2, restaurants.size());
         Restaurant restaurant = restaurants.get(0);
         assertEquals("12c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
         assertEquals("KFC", restaurant.getName());
