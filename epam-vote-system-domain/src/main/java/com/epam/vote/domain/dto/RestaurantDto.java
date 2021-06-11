@@ -1,6 +1,7 @@
 package com.epam.vote.domain.dto;
 
 import com.epam.vote.domain.Restaurant;
+
 import java.util.Objects;
 
 /**
@@ -70,9 +71,9 @@ public class RestaurantDto {
     @Override
     public String toString() {
         return "RestaurantDto{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", address='" + address + '\'' +
+            '}';
     }
 }

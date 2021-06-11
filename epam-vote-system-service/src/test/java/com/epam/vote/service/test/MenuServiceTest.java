@@ -1,8 +1,15 @@
 package com.epam.vote.service.test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.epam.vote.domain.Menu;
 import com.epam.vote.repository.IMenuRepository;
 import com.epam.vote.service.impl.MenuService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,11 +17,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Test for {@link MenuService}.
@@ -35,8 +39,8 @@ public class MenuServiceTest {
 
     @Test
     public void testGetMenuOfRestaurant() {
-        List<Menu> menuListMenus = new ArrayList<>();
-        menuListMenus.add(new Menu("550b17ef-389a-47a1-af76-1fb53373da68", "pizza", BigDecimal.valueOf(5.55)));
+        List<Menu> menuListMenus = Collections.singletonList(
+            new Menu("550b17ef-389a-47a1-af76-1fb53373da68", "pizza", BigDecimal.valueOf(5.55)));
         when(menuRepository.findMenuOfRestaurant("KFC")).thenReturn(menuListMenus);
         List<Menu> menuListService = menuService.getMenuOfRestaurant("KFC");
         assertEquals(1, menuListService.size());

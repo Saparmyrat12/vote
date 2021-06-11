@@ -1,7 +1,9 @@
 package com.epam.vote.repository;
 
 import com.epam.vote.domain.Menu;
+
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
