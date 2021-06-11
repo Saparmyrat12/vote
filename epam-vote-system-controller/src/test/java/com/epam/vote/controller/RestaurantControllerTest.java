@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 /**
- * Test Restaurant controller.
+ * Test for {@link RestaurantController}.
  * <p/>
  * Copyright (C) 2021
  * <p/>

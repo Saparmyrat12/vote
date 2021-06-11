@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
- * Test Restaurant service.
+ * Test for {@link RestaurantService}.
  * <p/>
  * Copyright (C) 2021
  * <p/>
