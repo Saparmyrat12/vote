@@ -38,9 +38,9 @@ public class RestaurantServiceTest {
                 "881 Doe Crossing Lane"));
         when(restaurantRepository.findAllRestaurants()).thenReturn(restaurantListRepository);
         List<Restaurant> restaurantListService = restaurantService.getAllRestaurants();
+        assertEquals(1, restaurantListService.size());
         Restaurant restaurant = restaurantListService.get(0);
         assertNotNull(restaurantListService);
-        assertEquals(1, restaurantListService.size());
         assertEquals("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
         assertEquals("Burger King", restaurant.getName());
         assertEquals("881 Doe Crossing Lane", restaurant.getAddress());

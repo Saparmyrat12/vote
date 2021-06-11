@@ -35,6 +35,6 @@ public class MenuRepositoryTest {
         Menu menu = menuList.get(0);
         assertEquals("550b17ef-389a-47a1-af76-1fb53373da68", menu.getId());
         assertEquals("pizza", menu.getName());
-        assertEquals(BigDecimal.valueOf(5.55), menu.getPrice());
+        assertEquals(new BigDecimal("5.55"), menu.getPrice());
     }
 }
