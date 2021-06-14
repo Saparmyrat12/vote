@@ -29,8 +29,8 @@ public class RestaurantService implements IRestaurantService {
 
     @Override
     public List<Restaurant> getAllRestaurants() {
-        int restaurantsCount = restaurantRepository.findAllRestaurants().size();
-        LOGGER.info("getAllRestaurants size = {}", restaurantsCount);
-        return restaurantRepository.findAllRestaurants();
+        List<Restaurant> restaurants = restaurantRepository.findAllRestaurants();
+        LOGGER.info("getAllRestaurants size = {}", restaurants.size());
+        return restaurants;
     }
 }

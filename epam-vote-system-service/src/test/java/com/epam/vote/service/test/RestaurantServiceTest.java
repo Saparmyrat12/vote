@@ -50,6 +50,6 @@ public class RestaurantServiceTest {
         assertEquals("Burger King", restaurant.getName());
         assertEquals("881 Doe Crossing Lane", restaurant.getAddress());
         assertNotNull(restaurantService.getAllRestaurants());
-        verify(restaurantRepository, times(4)).findAllRestaurants();
+        verify(restaurantRepository, times(2)).findAllRestaurants();
     }
 }

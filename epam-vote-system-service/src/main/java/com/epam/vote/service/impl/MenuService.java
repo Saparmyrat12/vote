@@ -30,8 +30,8 @@ public class MenuService implements IMenuService {
 
     @Override
     public List<Menu> getMenuOfRestaurant(String nameRestaurant) {
-        int menuOfRestaurantCount = menuRepository.findMenuOfRestaurant(nameRestaurant).size();
-        LOGGER.info("getMenuOfRestaurant size = {}", menuOfRestaurantCount);
-        return menuRepository.findMenuOfRestaurant(nameRestaurant);
+        List<Menu> menus = menuRepository.findMenuOfRestaurant(nameRestaurant);
+        LOGGER.info("getMenuOfRestaurant size = {}", menus.size());
+        return menus;
     }
 }

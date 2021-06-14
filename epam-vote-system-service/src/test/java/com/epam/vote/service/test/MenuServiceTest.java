@@ -49,6 +49,6 @@ public class MenuServiceTest {
         assertEquals("pizza", menu.getName());
         assertEquals(new BigDecimal("5.55"), menu.getPrice());
         assertNotNull(menuService.getMenuOfRestaurant("KFC"));
-        verify(menuRepository, times(4)).findMenuOfRestaurant("KFC");
+        verify(menuRepository, times(2)).findMenuOfRestaurant("KFC");
     }
 }
