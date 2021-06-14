@@ -17,6 +17,7 @@ import java.util.List;
  * Copyright (C) 2021
  * <p/>
  * Date: июнь 11, 2021
+ *
  * @author Sapar
  */
 @Service
@@ -29,7 +30,8 @@ public class MenuService implements IMenuService {
 
     @Override
     public List<Menu> getMenuOfRestaurant(String nameRestaurant) {
-        LOGGER.info("getMenuOfRestaurant size = {}", menuRepository.findMenuOfRestaurant(nameRestaurant).size());
+        int menuOfRestaurantCount = menuRepository.findMenuOfRestaurant(nameRestaurant).size();
+        LOGGER.info("getMenuOfRestaurant size = {}", menuOfRestaurantCount);
         return menuRepository.findMenuOfRestaurant(nameRestaurant);
     }
 }
