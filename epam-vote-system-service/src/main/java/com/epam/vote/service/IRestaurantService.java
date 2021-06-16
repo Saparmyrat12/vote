@@ -1,6 +1,7 @@
 package com.epam.vote.service;
 
 import com.epam.vote.domain.Restaurant;
+
 import java.util.List;
 
 /**

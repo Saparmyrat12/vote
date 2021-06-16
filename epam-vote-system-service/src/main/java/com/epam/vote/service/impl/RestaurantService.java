@@ -3,6 +3,7 @@ package com.epam.vote.service.impl;
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.repository.IRestaurantRepository;
 import com.epam.vote.service.IRestaurantService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class RestaurantService implements IRestaurantService {
 
     @Override
     public List<Restaurant> getAllRestaurants() {
-        LOGGER.info("getAllRestaurants size = {}", restaurantRepository.findAllRestaurants().size());
-        return restaurantRepository.findAllRestaurants();
+        List<Restaurant> restaurants = restaurantRepository.findAllRestaurants();
+        LOGGER.info("getAllRestaurants size = {}", restaurants.size());
+        return restaurants;
     }
 }

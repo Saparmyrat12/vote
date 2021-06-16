@@ -1,20 +1,25 @@
 package com.epam.vote.controller;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.domain.dto.RestaurantDto;
 import com.epam.vote.service.impl.RestaurantService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Test for {@link RestaurantController}.
@@ -35,13 +40,13 @@ public class RestaurantControllerTest {
 
     @Test
     public void testGetAllRestaurant() {
-        List<Restaurant> restaurants = new ArrayList<>();
-        restaurants.add(new Restaurant("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", "Burger King",
+        List<Restaurant> restaurants =
+            Collections.singletonList(new Restaurant("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", "Burger King",
                 "881 Doe Crossing Lane"));
         when(restaurantService.getAllRestaurants()).thenReturn(restaurants);
         ResponseEntity<List<RestaurantDto>> restaurantDtos = restaurantController.getAllRestaurants();
         RestaurantDto restaurantDto = restaurantDtos.getBody().get(0);
-        assertEquals(true, restaurantDtos.getStatusCode().is2xxSuccessful());
+        assertTrue(restaurantDtos.getStatusCode().is2xxSuccessful());
         assertEquals(1, restaurantDtos.getBody().size());
         assertEquals("Burger King", restaurantDto.getName());
         assertEquals("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurantDto.getId());

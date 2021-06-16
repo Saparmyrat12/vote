@@ -9,8 +9,8 @@ import java.util.Objects;
  * Copyright (C) 2021
  * <p/>
  * Date: май 26, 2021
- * @author Sapar
  * @param <T> id
+ * @author Sapar
  */
 public abstract class BaseEntity<T> {
 
@@ -96,9 +96,9 @@ public abstract class BaseEntity<T> {
         }
         BaseEntity<?> that = (BaseEntity<?>) o;
         return recordVersion == that.recordVersion && id.equals(that.id) && createdUser
-                .equals(that.createdUser) && updatedUser
-                .equals(that.updatedUser) && createdDate
-                .equals(that.createdDate) && updatedDate.equals(that.updatedDate);
+            .equals(that.createdUser) && updatedUser
+            .equals(that.updatedUser) && createdDate
+            .equals(that.createdDate) && updatedDate.equals(that.updatedDate);
     }
 
     @Override
@@ -109,12 +109,12 @@ public abstract class BaseEntity<T> {
     @Override
     public String toString() {
         return "BaseEntity{" +
-                "id=" + id +
-                ", createdUser='" + createdUser + '\'' +
-                ", updatedUser='" + updatedUser + '\'' +
-                ", createdDate=" + createdDate +
-                ", updatedDate=" + updatedDate +
-                ", recordVersion=" + recordVersion +
-                '}';
+            "id=" + id +
+            ", createdUser='" + createdUser + '\'' +
+            ", updatedUser='" + updatedUser + '\'' +
+            ", createdDate=" + createdDate +
+            ", updatedDate=" + updatedDate +
+            ", recordVersion=" + recordVersion +
+            '}';
     }
 }
