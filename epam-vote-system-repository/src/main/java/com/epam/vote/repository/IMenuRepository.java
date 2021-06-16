@@ -19,7 +19,8 @@ public interface IMenuRepository {
 
     /**
      * This method finds menu of restaurant.
+     * @param restaurantId id of restaurant.
      * @return list of {@link Menu}'s.
      */
-    List<Menu> findMenuOfRestaurant(String nameRestaurant);
+    List<Menu> findMenuOfRestaurant(String restaurantId);
 }

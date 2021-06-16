@@ -31,7 +31,7 @@ public class MenuRepositoryTest {
 
     @Test
     public void testFindMenuOfRestaurant() {
-        List<Menu> menuList = repository.findMenuOfRestaurant("KFC");
+        List<Menu> menuList = repository.findMenuOfRestaurant("12c1abd4-e9dc-43a0-90aa-441be8e9f8e7");
         assertEquals(1, menuList.size());
         Menu menu = menuList.get(0);
         assertEquals("550b17ef-389a-47a1-af76-1fb53373da68", menu.getId());
