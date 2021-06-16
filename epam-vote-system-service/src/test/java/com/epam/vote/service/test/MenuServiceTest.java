@@ -39,16 +39,16 @@ public class MenuServiceTest {
 
     @Test
     public void testGetMenuOfRestaurant() {
-        List<Menu> menuListRepository = Collections.singletonList(
+        List<Menu> expectedMenus = Collections.singletonList(
             new Menu("550b17ef-389a-47a1-af76-1fb53373da68", "pizza", BigDecimal.valueOf(5.55)));
-        when(menuRepository.findMenuOfRestaurant("KFC")).thenReturn(menuListRepository);
-        List<Menu> menuListService = menuService.getMenuOfRestaurant("KFC");
-        assertEquals(1, menuListService.size());
-        Menu menu = menuListService.get(0);
+        when(menuRepository.findMenuOfRestaurant("KFC")).thenReturn(expectedMenus);
+        List<Menu> actualMenus = menuService.getMenuOfRestaurant("KFC");
+        assertEquals(1, actualMenus.size());
+        Menu menu = actualMenus.get(0);
         assertEquals("550b17ef-389a-47a1-af76-1fb53373da68", menu.getId());
         assertEquals("pizza", menu.getName());
         assertEquals(new BigDecimal("5.55"), menu.getPrice());
-        assertNotNull(menuListService);
+        assertNotNull(actualMenus);
         verify(menuRepository, times(1)).findMenuOfRestaurant("KFC");
     }
 }

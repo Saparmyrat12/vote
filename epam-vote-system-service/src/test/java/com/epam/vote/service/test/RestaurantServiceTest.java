@@ -38,18 +38,18 @@ public class RestaurantServiceTest {
 
     @Test
     public void testGetAllRestaurant() {
-        List<Restaurant> restaurantListRepository =
+        List<Restaurant> expectedRestaurants =
             Collections.singletonList(new Restaurant("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", "Burger King",
                 "881 Doe Crossing Lane"));
-        when(restaurantRepository.findAllRestaurants()).thenReturn(restaurantListRepository);
-        List<Restaurant> restaurantListService = restaurantService.getAllRestaurants();
-        assertEquals(1, restaurantListService.size());
-        Restaurant restaurant = restaurantListService.get(0);
-        assertNotNull(restaurantListService);
+        when(restaurantRepository.findAllRestaurants()).thenReturn(expectedRestaurants);
+        List<Restaurant> actualRestaurants = restaurantService.getAllRestaurants();
+        assertEquals(1, actualRestaurants.size());
+        Restaurant restaurant = actualRestaurants.get(0);
+        assertNotNull(actualRestaurants);
         assertEquals("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
         assertEquals("Burger King", restaurant.getName());
         assertEquals("881 Doe Crossing Lane", restaurant.getAddress());
-        assertNotNull(restaurantListService);
+        assertNotNull(actualRestaurants);
         verify(restaurantRepository, times(1)).findAllRestaurants();
     }
 }
