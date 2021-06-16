@@ -49,7 +49,7 @@ public class RestaurantServiceTest {
         assertEquals("39c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
         assertEquals("Burger King", restaurant.getName());
         assertEquals("881 Doe Crossing Lane", restaurant.getAddress());
-        assertNotNull(restaurantService.getAllRestaurants());
-        verify(restaurantRepository, times(2)).findAllRestaurants();
+        assertNotNull(restaurantListService);
+        verify(restaurantRepository, times(1)).findAllRestaurants();
     }
 }
