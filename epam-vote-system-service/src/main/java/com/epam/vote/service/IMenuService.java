@@ -16,8 +16,8 @@ public interface IMenuService {
 
     /**
      * This method return list menu of restaurant.
-     * @param nameRestaurant name restaurant.
+     * @param idRestaurant id restaurant.
      * @return list of {@link Menu}'s.
      */
-    List<Menu> getMenuOfRestaurant(String nameRestaurant);
+    List<Menu> getMenuOfRestaurant(String idRestaurant);
 }

@@ -22,6 +22,6 @@
         from epam.dish as d
         inner join epam.restaurant_dish_map as rd on d.id = rd.dish_id
         inner join epam.restaurant as r on r.id = rd.restaurant_id
-        where r.name = #{nameRestaurant}
+        where r.id = #{idRestaurant}
     </select>
 </mapper>
