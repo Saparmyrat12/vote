@@ -2,6 +2,7 @@ package com.epam.vote.controller;
 
 import com.epam.vote.domain.dto.RestaurantDto;
 import com.epam.vote.service.impl.RestaurantService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,10 +31,10 @@ public class RestaurantController {
 
     @GetMapping
     public ResponseEntity<List<RestaurantDto>> getAllRestaurants() {
-        List<RestaurantDto> restaurantDtos = restaurantService.getAllRestaurants().stream()
-                .map(RestaurantDto::new).collect(Collectors.toList());
-        return !restaurantDtos.isEmpty()
-                ? new ResponseEntity<>(restaurantDtos, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        List<RestaurantDto> restaurantDtoList = restaurantService.getAllRestaurants().stream()
+            .map(RestaurantDto::new).collect(Collectors.toList());
+        return !restaurantDtoList.isEmpty()
+            ? new ResponseEntity<>(restaurantDtoList, HttpStatus.OK)
+            : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
