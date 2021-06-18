@@ -45,8 +45,7 @@ public class RestaurantController {
     }
 
     @GetMapping(value = "/{id}/menu")
-    public ResponseEntity<List<MenuDto>> getMenuOfRestaurant(
-        @PathVariable(name = "id") String id) {
+    public ResponseEntity<List<MenuDto>> getMenuOfRestaurant(@PathVariable(name = "id") String id) {
         List<MenuDto> menuDtoList = menuService.getMenuOfRestaurant(id).stream()
             .map(MenuDto::new).collect(Collectors.toList());
         return !menuDtoList.isEmpty()
