@@ -21,4 +21,19 @@
             address
         from epam.restaurant
     </select>
+
+    <insert id="createRestaurant" parameterType="Restaurant">
+        insert into epam.restaurant(
+                id,
+                name,
+                address,
+                created_user,
+                record_version)
+        values (
+                #{id},
+                #{name},
+                #{address},
+                #{createdUser},
+                #{recordVersion});
+    </insert>
 </mapper>

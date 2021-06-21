@@ -1,6 +1,5 @@
 package com.epam.vote.domain;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -25,9 +24,8 @@ public class Restaurant extends BaseEntity<String> {
         this.address = address;
     }
 
-    public Restaurant(String id, String createdUser, String updatedUser, LocalDate createdDate,
-                      LocalDate updatedDate, int recordVersion, String name, String address) {
-        super(id, createdUser, updatedUser, createdDate, updatedDate, recordVersion);
+    public Restaurant(String id, String name, String address, String createdUser, int recordVersion) {
+        super(id, createdUser, recordVersion);
         this.name = name;
         this.address = address;
     }

@@ -22,4 +22,11 @@ public interface IRestaurantRepository {
      * @return list of {@link Restaurant}'s.
      */
     List<Restaurant> findAllRestaurants();
+
+    /**
+     * This method create new restaurant.
+     * @param restaurant new restaurant.
+     * @return number of records inserted.
+     */
+    int createRestaurant(Restaurant restaurant);
 }
