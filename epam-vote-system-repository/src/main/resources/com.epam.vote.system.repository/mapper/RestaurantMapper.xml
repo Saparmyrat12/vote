@@ -7,11 +7,11 @@
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="address" property="address"/>
-        <result column="createdUser" property="created_user"/>
-        <result column="updatedUser" property="updated_user"/>
-        <result column="createdDate" property="created_date"/>
-        <result column="updatedDate" property="updated_date"/>
-        <result column="recordVersion" property="record_version"/>
+        <result column="created_user" property="createdUser"/>
+        <result column="updated_user" property="updatedUser"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+        <result column="record_version" property="recordVersion"/>
     </resultMap>
 
     <select id="findAllRestaurants" resultMap="RestaurantResultMap">
@@ -36,4 +36,15 @@
                 #{createdUser},
                 #{recordVersion});
     </insert>
+
+    <select id="findByRestaurantId" resultMap="RestaurantResultMap">
+        select
+            id,
+            name,
+            address,
+            created_user,
+            record_version
+        from epam.restaurant
+        where id = #{id}
+    </select>
 </mapper>

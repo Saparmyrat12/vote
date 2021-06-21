@@ -29,4 +29,11 @@ public interface IRestaurantRepository {
      * @return number of records inserted.
      */
     int createRestaurant(Restaurant restaurant);
+
+    /**
+     * This method find restaurant by id.
+     * @param id id restaurant.
+     * @return {@link Restaurant}.
+     */
+    Restaurant findByRestaurantId(String id);
 }
