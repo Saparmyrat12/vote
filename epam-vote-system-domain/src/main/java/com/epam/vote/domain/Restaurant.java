@@ -24,8 +24,8 @@ public class Restaurant extends BaseEntity<String> {
         this.address = address;
     }
 
-    public Restaurant(String id, String name, String address, String createdUser, int recordVersion) {
-        super(id, createdUser, recordVersion);
+    public Restaurant(String id, String name, String address, String createdUser) {
+        super(id, createdUser);
         this.name = name;
         this.address = address;
     }

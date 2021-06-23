@@ -25,7 +25,7 @@ public interface IRestaurantRepository {
 
     /**
      * This method create new restaurant.
-     * @param restaurant new restaurant.
+     * @param restaurant instance of {@link Restaurant}.
      * @return number of records inserted.
      */
     int createRestaurant(Restaurant restaurant);
@@ -35,5 +35,5 @@ public interface IRestaurantRepository {
      * @param id id restaurant.
      * @return {@link Restaurant}.
      */
-    Restaurant findByRestaurantId(String id);
+    Restaurant findById(String id);
 }
