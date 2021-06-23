@@ -28,11 +28,6 @@ public abstract class BaseEntity<T> {
         this.id = id;
     }
 
-    public BaseEntity(T id, String createdUser) {
-        this.id = id;
-        this.createdUser = createdUser;
-    }
-
     public BaseEntity(T id, String createdUser, String updatedUser, LocalDate createdDate,
                       LocalDate updatedDate, int recordVersion) {
         this.id = id;

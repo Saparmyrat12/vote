@@ -41,9 +41,9 @@ public class RestaurantRepositoryTest {
     @Test
     public void testCreateRestaurant() {
         Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
-            "Dostoevsky avenue 75", "system");
-        int actualNumberOfRestaurants = repository.createRestaurant(expectedRestaurant);
-        assertEquals(1, actualNumberOfRestaurants);
+            "Dostoevsky avenue 75");
+        expectedRestaurant.setCreatedUser( "system");
+        repository.createRestaurant(expectedRestaurant);
         Restaurant actualRestaurant = repository.findById("c9fc058d-96f4-4181-958d-dd754b762d7e");
         assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", actualRestaurant.getId());
         assertEquals("McDonald's", actualRestaurant.getName());
