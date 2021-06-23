@@ -7,18 +7,50 @@
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="address" property="address"/>
-        <result column="createdUser" property="created_user"/>
-        <result column="updatedUser" property="updated_user"/>
-        <result column="createdDate" property="created_date"/>
-        <result column="updatedDate" property="updated_date"/>
-        <result column="recordVersion" property="record_version"/>
+        <result column="created_user" property="createdUser"/>
+        <result column="updated_user" property="updatedUser"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+        <result column="record_version" property="recordVersion"/>
     </resultMap>
 
-    <select id="findAllRestaurants" resultMap="RestaurantResultMap">
-        select
+    <sql id="baseEntityColumns">
+            id,
+            created_user,
+            updated_user,
+            created_date,
+            updated_date,
+            record_version
+    </sql>
+
+    <sql id="restaurantColumns">
             id,
             name,
             address
+    </sql>
+
+    <select id="findAllRestaurants" resultMap="RestaurantResultMap">
+        select
+             <include refid="restaurantColumns"/>
         from epam.restaurant
+    </select>
+
+    <insert id="createRestaurant" parameterType="Restaurant">
+        insert into epam.restaurant(
+             <include refid="restaurantColumns"/>,
+              created_user)
+        values (
+                #{id},
+                #{name},
+                #{address},
+                #{createdUser});
+    </insert>
+
+    <select id="findById" resultMap="RestaurantResultMap">
+        select
+             <include refid="restaurantColumns"/>,
+              created_user
+        from epam.restaurant
+        where id = #{id}
     </select>
 </mapper>
