@@ -33,4 +33,11 @@ public class RestaurantService implements IRestaurantService {
         LOGGER.info("getAllRestaurants size = {}", restaurants.size());
         return restaurants;
     }
+
+    @Override
+    public Restaurant createRestaurant(Restaurant restaurant) {
+        restaurantRepository.createRestaurant(restaurant);
+        LOGGER.info("createRestaurant {}  {}", restaurant.getId(), restaurant.getCreatedUser());
+        return restaurant;
+    }
 }
