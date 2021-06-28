@@ -19,4 +19,11 @@ public interface IRestaurantService {
      * @return list of {@link Restaurant}'s.
      */
     List<Restaurant> getAllRestaurants();
+
+    /**
+     * This method create new restaurant.
+     * @param restaurant instance of {@link Restaurant}.
+     * @return {@link Restaurant}.
+     */
+    Restaurant createRestaurant(Restaurant restaurant);
 }
