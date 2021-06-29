@@ -1,5 +1,6 @@
 package com.epam.vote.controller;
 
+import com.epam.vote.domain.Restaurant;
 import com.epam.vote.domain.dto.MenuDto;
 import com.epam.vote.domain.dto.RestaurantDto;
 import com.epam.vote.service.impl.MenuService;
@@ -11,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +26,7 @@ import java.util.stream.Collectors;
  * Copyright (C) 2021
  * <p/>
  * Date: май 24, 2021
+ *
  * @author Sapar
  */
 @RestController
@@ -51,5 +55,11 @@ public class RestaurantController {
         return !menuDtoList.isEmpty()
             ? new ResponseEntity<>(menuDtoList, HttpStatus.OK)
             : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
+        restaurantService.createRestaurant(restaurant);
+        return new ResponseEntity<>(restaurant, HttpStatus.CREATED);
     }
 }

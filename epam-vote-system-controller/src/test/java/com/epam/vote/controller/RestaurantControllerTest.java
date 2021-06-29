@@ -78,4 +78,18 @@ public class RestaurantControllerTest {
         assertEquals(new BigDecimal("5.55"), actualMenuDto.getPrice());
         verify(menuService, times(1)).getMenuOfRestaurant("12c1abd4-e9dc-43a0-90aa-441be8e9f8e7");
     }
+
+    @Test
+    public void testCreateRestaurant() {
+        Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
+            "Dostoevsky avenue 75");
+        expectedRestaurant.setCreatedUser("system");
+        ResponseEntity<Restaurant> actualRestaurant = restaurantController.createRestaurant(expectedRestaurant);
+        assertTrue(actualRestaurant.getStatusCode().is2xxSuccessful());
+        Restaurant restaurant = actualRestaurant.getBody();
+        assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", restaurant.getId());
+        assertEquals("McDonald's", restaurant.getName());
+        assertEquals("Dostoevsky avenue 75", restaurant.getAddress());
+        assertEquals("system", restaurant.getCreatedUser());
+    }
 }
