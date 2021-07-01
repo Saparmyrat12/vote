@@ -15,7 +15,7 @@ import java.util.Objects;
 public abstract class BaseEntity<T> {
 
     private T id;
-    private String createdUser;
+    private String createdUser = "system";
     private String updatedUser;
     private LocalDate createdDate;
     private LocalDate updatedDate;
