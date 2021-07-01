@@ -48,9 +48,15 @@
 
     <select id="findById" resultMap="RestaurantResultMap">
         select
-             <include refid="restaurantColumns"/>,
-              created_user
+             <include refid="restaurantColumns"/>
         from epam.restaurant
         where id = #{id}
+    </select>
+
+    <select id="findByName" resultMap="RestaurantResultMap">
+        select
+        <include refid="restaurantColumns"/>
+        from epam.restaurant
+        where name = #{name}
     </select>
 </mapper>

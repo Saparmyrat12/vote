@@ -42,12 +42,20 @@ public class RestaurantRepositoryTest {
     public void testCreateRestaurant() {
         Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
             "Dostoevsky avenue 75");
-        expectedRestaurant.setCreatedUser( "system");
         repository.createRestaurant(expectedRestaurant);
         Restaurant actualRestaurant = repository.findById("c9fc058d-96f4-4181-958d-dd754b762d7e");
         assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", actualRestaurant.getId());
         assertEquals("McDonald's", actualRestaurant.getName());
         assertEquals("Dostoevsky avenue 75", actualRestaurant.getAddress());
         assertEquals("system", actualRestaurant.getCreatedUser());
+    }
+
+    @Test
+    public void testFindByName() {
+        Restaurant restaurant = repository.findByName("KFC");
+        assertEquals("12c1abd4-e9dc-43a0-90aa-441be8e9f8e7", restaurant.getId());
+        assertEquals("KFC", restaurant.getName());
+        assertEquals("112 Doe Crossing Lane", restaurant.getAddress());
+        assertEquals("system", restaurant.getCreatedUser());
     }
 }

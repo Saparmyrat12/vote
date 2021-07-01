@@ -35,4 +35,11 @@ public interface IRestaurantRepository {
      * @return {@link Restaurant}.
      */
     Restaurant findById(String id);
+
+    /**
+     * This method find restaurant by name.
+     * @param name name restaurant.
+     * @return {@link Restaurant}.
+     */
+    Restaurant findByName(String name);
 }
