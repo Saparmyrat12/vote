@@ -57,7 +57,6 @@ public class RestaurantServiceTest {
     public void testCreateRestaurant() {
         Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
             "Dostoevsky avenue 75");
-        expectedRestaurant.setCreatedUser("system");
         Restaurant actualRestaurant = restaurantService.createRestaurant(expectedRestaurant);
         assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", actualRestaurant.getId());
         assertEquals("McDonald's", actualRestaurant.getName());

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,13 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 /**
  * Restaurant controller.
  * <p/>
  * Copyright (C) 2021
  * <p/>
  * Date: май 24, 2021
- *
  * @author Sapar
  */
 @RestController
@@ -58,8 +60,11 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
+    @PreAuthorize(value = "@restaurantValidator.isExists(#restaurantDto)")
+    public ResponseEntity<RestaurantDto> createRestaurant(@Valid @RequestBody RestaurantDto restaurantDto) {
+        Restaurant restaurant =
+            new Restaurant(restaurantDto.getId(), restaurantDto.getName(), restaurantDto.getAddress());
         restaurantService.createRestaurant(restaurant);
-        return new ResponseEntity<>(restaurant, HttpStatus.CREATED);
+        return new ResponseEntity<>(restaurantDto, HttpStatus.CREATED);
     }
 }
