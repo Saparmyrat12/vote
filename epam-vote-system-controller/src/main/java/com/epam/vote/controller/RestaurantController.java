@@ -3,6 +3,7 @@ package com.epam.vote.controller;
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.domain.dto.MenuDto;
 import com.epam.vote.domain.dto.RestaurantDto;
+import com.epam.vote.service.convertor.RestaurantConvertor;
 import com.epam.vote.service.impl.MenuService;
 import com.epam.vote.service.impl.RestaurantService;
 
@@ -60,11 +61,10 @@ public class RestaurantController {
     }
 
     @PostMapping
-    @PreAuthorize(value = "@restaurantValidator.isExists(#restaurantDto)")
+    @PreAuthorize(value = "@restaurantValidator.isNotExists(#restaurantDto)")
     public ResponseEntity<RestaurantDto> createRestaurant(@Valid @RequestBody RestaurantDto restaurantDto) {
-        Restaurant restaurant =
-            new Restaurant(restaurantDto.getId(), restaurantDto.getName(), restaurantDto.getAddress());
-        restaurantService.createRestaurant(restaurant);
+        Restaurant restaurant = RestaurantConvertor.toRestaurant(restaurantDto);
+        restaurantService.saveRestaurant(restaurant);
         return new ResponseEntity<>(restaurantDto, HttpStatus.CREATED);
     }
 }
