@@ -24,10 +24,10 @@ public interface IRestaurantRepository {
     List<Restaurant> findAllRestaurants();
 
     /**
-     * This method create new restaurant.
+     * This method save new restaurant.
      * @param restaurant instance of {@link Restaurant}.
      */
-    void createRestaurant(Restaurant restaurant);
+    void saveRestaurant(Restaurant restaurant);
 
     /**
      * This method find restaurant by id.

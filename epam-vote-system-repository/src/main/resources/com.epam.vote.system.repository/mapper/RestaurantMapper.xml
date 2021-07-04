@@ -35,7 +35,7 @@
         from epam.restaurant
     </select>
 
-    <insert id="createRestaurant" parameterType="Restaurant">
+    <insert id="saveRestaurant" parameterType="Restaurant">
         insert into epam.restaurant(
              <include refid="restaurantColumns"/>,
               created_user)
@@ -55,7 +55,7 @@
 
     <select id="findByName" resultMap="RestaurantResultMap">
         select
-        <include refid="restaurantColumns"/>
+             <include refid="restaurantColumns"/>
         from epam.restaurant
         where name = #{name}
     </select>

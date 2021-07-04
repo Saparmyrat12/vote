@@ -54,11 +54,10 @@ public class RestaurantServiceTest {
     }
 
     @Test
-    public void testCreateRestaurant() {
+    public void testSaveRestaurant() {
         Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
             "Dostoevsky avenue 75");
-        Restaurant actualRestaurant = restaurantService.createRestaurant(expectedRestaurant);
-        assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", actualRestaurant.getId());
+        Restaurant actualRestaurant = restaurantService.saveRestaurant(expectedRestaurant);
         assertEquals("McDonald's", actualRestaurant.getName());
         assertEquals("Dostoevsky avenue 75", actualRestaurant.getAddress());
         assertEquals("system", actualRestaurant.getCreatedUser());
