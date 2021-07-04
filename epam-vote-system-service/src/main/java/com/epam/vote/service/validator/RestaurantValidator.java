@@ -22,7 +22,7 @@ public class RestaurantValidator {
     @Autowired
     private IRestaurantRepository repository;
 
-    public boolean isExists(RestaurantDto registrationRestaurant) {
+    public boolean isNotExists(RestaurantDto registrationRestaurant) {
         Restaurant restaurant = repository.findByName(registrationRestaurant.getName());
         if (null == restaurant) {
             return true;
