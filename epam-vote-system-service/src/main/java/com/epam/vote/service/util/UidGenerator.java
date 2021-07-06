@@ -13,7 +13,7 @@ import java.util.UUID;
 public class UidGenerator {
 
     private UidGenerator() {
-        throw new IllegalStateException();
+        throw new IllegalStateException("This class have only private constructor");
     }
 
     public static String generate() {

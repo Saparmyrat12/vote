@@ -30,6 +30,7 @@ import javax.validation.Valid;
  * Copyright (C) 2021
  * <p/>
  * Date: май 24, 2021
+ *
  * @author Sapar
  */
 @RestController
@@ -64,7 +65,7 @@ public class RestaurantController {
     @PreAuthorize(value = "@restaurantValidator.isNotExists(#restaurantDto)")
     public ResponseEntity<RestaurantDto> createRestaurant(@Valid @RequestBody RestaurantDto restaurantDto) {
         Restaurant restaurant = RestaurantConvertor.convert(restaurantDto);
-        RestaurantDto dto = new RestaurantDto(restaurantService.saveRestaurant(restaurant));
-        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+        return new ResponseEntity<>(new RestaurantDto(restaurantService.saveRestaurant(restaurant)),
+            HttpStatus.CREATED);
     }
 }
