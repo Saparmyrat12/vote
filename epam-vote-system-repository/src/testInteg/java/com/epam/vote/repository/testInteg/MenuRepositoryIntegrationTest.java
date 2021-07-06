@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = EmbeddedPostgresConfig.class)
-public class MenuRepositoryTest {
+public class MenuRepositoryIntegrationTest {
 
     @Autowired
     private IMenuRepository repository;

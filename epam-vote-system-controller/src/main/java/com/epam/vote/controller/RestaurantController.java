@@ -63,8 +63,8 @@ public class RestaurantController {
     @PostMapping
     @PreAuthorize(value = "@restaurantValidator.isNotExists(#restaurantDto)")
     public ResponseEntity<RestaurantDto> createRestaurant(@Valid @RequestBody RestaurantDto restaurantDto) {
-        Restaurant restaurant = RestaurantConvertor.toRestaurant(restaurantDto);
-        restaurantService.saveRestaurant(restaurant);
-        return new ResponseEntity<>(restaurantDto, HttpStatus.CREATED);
+        Restaurant restaurant = RestaurantConvertor.convert(restaurantDto);
+        RestaurantDto dto = new RestaurantDto(restaurantService.saveRestaurant(restaurant));
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 }

@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = EmbeddedPostgresConfig.class)
-public class RestaurantRepositoryTest {
+public class RestaurantRepositoryIntegrationTest {
 
     @Autowired
     private IRestaurantRepository repository;

@@ -3,8 +3,6 @@ package com.epam.vote.service.convertor;
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.domain.dto.RestaurantDto;
 
-import org.springframework.stereotype.Service;
-
 /**
  * Restaurant Convertor.
  * <p/>
@@ -13,10 +11,9 @@ import org.springframework.stereotype.Service;
  * Date: июль 02, 2021
  * @author Sapar
  */
-@Service
 public class RestaurantConvertor {
 
-    public static Restaurant toRestaurant(RestaurantDto restaurantDto) {
+    public static Restaurant convert(RestaurantDto restaurantDto) {
         Restaurant restaurant = new Restaurant();
         restaurant.setId(restaurantDto.getId());
         restaurant.setName(restaurantDto.getName());

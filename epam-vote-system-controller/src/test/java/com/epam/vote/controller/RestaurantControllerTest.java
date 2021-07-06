@@ -31,7 +31,6 @@ import java.util.List;
  * Copyright (C) 2021
  * <p/>
  * Date: май 30, 2021
- *
  * @author Sapar
  */
 @RunWith(MockitoJUnitRunner.class)
@@ -82,14 +81,17 @@ public class RestaurantControllerTest {
 
     @Test
     public void testCreateRestaurant() {
-        RestaurantDto expectedRestaurantDto =
-            new RestaurantDto(new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
-                "Dostoevsky avenue 75"));
-        ResponseEntity<RestaurantDto> actualRestaurantDto = restaurantController.createRestaurant(expectedRestaurantDto);
-        assertTrue(actualRestaurantDto.getStatusCode().is2xxSuccessful());
-        RestaurantDto restaurantDto = actualRestaurantDto.getBody();
+        Restaurant expectedRestaurant = new Restaurant("c9fc058d-96f4-4181-958d-dd754b762d7e", "McDonald's",
+            "Dostoevsky avenue 75");
+        Restaurant restaurant = new Restaurant("", "McDonald's", "Dostoevsky avenue 75");
+        when(restaurantService.saveRestaurant(restaurant)).thenReturn(expectedRestaurant);
+        RestaurantDto expectedRestaurantDto = new RestaurantDto(restaurant);
+        ResponseEntity<RestaurantDto> actualResponseEntity = restaurantController.createRestaurant(expectedRestaurantDto);
+        assertTrue(actualResponseEntity.getStatusCode().is2xxSuccessful());
+        RestaurantDto restaurantDto = actualResponseEntity.getBody();
         assertEquals("c9fc058d-96f4-4181-958d-dd754b762d7e", restaurantDto.getId());
         assertEquals("McDonald's", restaurantDto.getName());
         assertEquals("Dostoevsky avenue 75", restaurantDto.getAddress());
+        verify(restaurantService, times(1)).saveRestaurant(restaurant);
     }
 }

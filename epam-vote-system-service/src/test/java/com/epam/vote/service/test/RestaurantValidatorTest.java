@@ -1,5 +1,7 @@
 package com.epam.vote.service.test;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.epam.vote.domain.Restaurant;
@@ -37,5 +39,6 @@ public class RestaurantValidatorTest {
             "Dostoevsky avenue 75");
         when(restaurantRepository.findByName("McDonald's")).thenReturn(restaurant);
         restaurantValidator.isNotExists(new RestaurantDto(restaurant));
+        verify(restaurantRepository, times(1)).findByName("McDonald's");
     }
 }

@@ -18,26 +18,26 @@ import java.util.List;
 public interface IRestaurantRepository {
 
     /**
-     * This method find all restaurants.
+     * This method finds all restaurants.
      * @return list of {@link Restaurant}'s.
      */
     List<Restaurant> findAllRestaurants();
 
     /**
-     * This method save new restaurant.
+     * This method saves the new restaurant.
      * @param restaurant instance of {@link Restaurant}.
      */
     void saveRestaurant(Restaurant restaurant);
 
     /**
-     * This method find restaurant by id.
+     * This method finds a restaurant by id.
      * @param id id restaurant.
      * @return {@link Restaurant}.
      */
     Restaurant findById(String id);
 
     /**
-     * This method find restaurant by name.
+     * This method finds a restaurant by name.
      * @param name name restaurant.
      * @return {@link Restaurant}.
      */

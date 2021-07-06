@@ -95,10 +95,10 @@ public abstract class BaseEntity<T> {
             return false;
         }
         BaseEntity<?> that = (BaseEntity<?>) o;
-        return recordVersion == that.recordVersion && id.equals(that.id) && createdUser
-            .equals(that.createdUser) && updatedUser
-            .equals(that.updatedUser) && createdDate
-            .equals(that.createdDate) && updatedDate.equals(that.updatedDate);
+        return recordVersion == that.recordVersion && Objects.equals(id, that.id) && Objects.equals(
+            createdUser, that.createdUser) && Objects.equals(updatedUser,
+            that.updatedUser) && Objects.equals(createdDate, that.createdDate) && Objects.equals(
+            updatedDate, that.updatedDate);
     }
 
     @Override
