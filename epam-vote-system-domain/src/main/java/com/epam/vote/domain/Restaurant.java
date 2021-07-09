@@ -2,6 +2,9 @@ package com.epam.vote.domain;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 /**
  * Restaurant domain.
  * <p/>
@@ -12,7 +15,12 @@ import java.util.Objects;
  */
 public class Restaurant extends BaseEntity<String> {
 
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String name;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String address;
 
     public Restaurant() {

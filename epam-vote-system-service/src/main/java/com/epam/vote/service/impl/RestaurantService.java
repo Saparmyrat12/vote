@@ -3,6 +3,7 @@ package com.epam.vote.service.impl;
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.repository.IRestaurantRepository;
 import com.epam.vote.service.IRestaurantService;
+import com.epam.vote.service.util.UidGenerator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +36,9 @@ public class RestaurantService implements IRestaurantService {
     }
 
     @Override
-    public Restaurant createRestaurant(Restaurant restaurant) {
-        restaurantRepository.createRestaurant(restaurant);
+    public Restaurant saveRestaurant(Restaurant restaurant) {
+        restaurant.setId(UidGenerator.generate());
+        restaurantRepository.saveRestaurant(restaurant);
         LOGGER.info("createRestaurant {}  {}", restaurant.getId(), restaurant.getCreatedUser());
         return restaurant;
     }

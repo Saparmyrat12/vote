@@ -15,7 +15,7 @@ import java.util.List;
 public interface IMenuService {
 
     /**
-     * This method return list menu of restaurant.
+     * This method returns list menu of restaurant.
      * @param restaurantId id of restaurant.
      * @return list of {@link Menu}'s.
      */

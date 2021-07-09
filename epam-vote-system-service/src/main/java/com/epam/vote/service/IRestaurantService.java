@@ -15,15 +15,15 @@ import java.util.List;
 public interface IRestaurantService {
 
     /**
-     * This method return list all restaurants.
+     * This method returns a list of all restaurants.
      * @return list of {@link Restaurant}'s.
      */
     List<Restaurant> getAllRestaurants();
 
     /**
-     * This method create new restaurant.
+     * This method saves the new restaurant.
      * @param restaurant instance of {@link Restaurant}.
      * @return {@link Restaurant}.
      */
-    Restaurant createRestaurant(Restaurant restaurant);
+    Restaurant saveRestaurant(Restaurant restaurant);
 }
