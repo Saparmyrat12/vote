@@ -25,10 +25,10 @@ public class RestExceptionHandler {
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<?> handleValidationException(ValidationException validationException) {
         LOGGER.error(validationException.getMessage());
-        return error(HttpStatus.BAD_REQUEST, validationException);
+        return sendError(HttpStatus.BAD_REQUEST, validationException);
     }
 
-    private ResponseEntity<?> error(HttpStatus status, Exception e) {
+    private ResponseEntity<?> sendError(HttpStatus status, Exception e) {
         LOGGER.error("Exception : ", e);
         return ResponseEntity.status(status).body(e.getMessage());
     }
