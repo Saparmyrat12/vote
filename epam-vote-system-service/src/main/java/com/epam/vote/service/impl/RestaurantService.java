@@ -33,10 +33,10 @@ public class RestaurantService implements IRestaurantService {
     public List<Restaurant> getAllRestaurants() {
         List<Restaurant> restaurants = restaurantRepository.findAllRestaurants();
         LOGGER.info("getAllRestaurants size = {}", restaurants.size());
-        if (!restaurants.isEmpty()) {
-           return restaurants;
+        if (restaurants.isEmpty()) {
+            throw new InternalException("The list of restaurants is empty");
         }
-        throw new InternalException("The list of restaurants is empty");
+        return restaurants;
     }
 
     @Override
