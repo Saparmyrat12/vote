@@ -1,5 +1,6 @@
 package com.epam.vote.controller;
 
+import com.epam.vote.service.exception.InternalException;
 import com.epam.vote.service.exception.ValidationException;
 
 import org.slf4j.Logger;
@@ -28,8 +29,14 @@ public class RestExceptionHandler {
         return sendError(HttpStatus.BAD_REQUEST, validationException);
     }
 
+    @ExceptionHandler(InternalException.class)
+    public ResponseEntity<?> handleInternalException(InternalException internalException) {
+        LOGGER.error(internalException.getMessage());
+        return sendError(HttpStatus.NO_CONTENT, internalException);
+    }
+
     private ResponseEntity<?> sendError(HttpStatus status, Exception e) {
-        LOGGER.error("Exception : ", e);
+        LOGGER.error("Exception : {}", e.getMessage());
         return ResponseEntity.status(status).body(e.getMessage());
     }
 }

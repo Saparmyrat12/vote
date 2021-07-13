@@ -3,6 +3,7 @@ package com.epam.vote.service.impl;
 import com.epam.vote.domain.Restaurant;
 import com.epam.vote.repository.IRestaurantRepository;
 import com.epam.vote.service.IRestaurantService;
+import com.epam.vote.service.exception.InternalException;
 import com.epam.vote.service.util.UidGenerator;
 
 import org.slf4j.Logger;
@@ -32,7 +33,10 @@ public class RestaurantService implements IRestaurantService {
     public List<Restaurant> getAllRestaurants() {
         List<Restaurant> restaurants = restaurantRepository.findAllRestaurants();
         LOGGER.info("getAllRestaurants size = {}", restaurants.size());
-        return restaurants;
+        if (!restaurants.isEmpty()) {
+           return restaurants;
+        }
+        throw new InternalException("The list of restaurants is empty");
     }
 
     @Override
