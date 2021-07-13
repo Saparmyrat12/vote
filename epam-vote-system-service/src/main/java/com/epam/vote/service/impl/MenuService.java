@@ -3,6 +3,7 @@ package com.epam.vote.service.impl;
 import com.epam.vote.domain.Menu;
 import com.epam.vote.repository.IMenuRepository;
 import com.epam.vote.service.IMenuService;
+import com.epam.vote.service.exception.InternalException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,9 @@ public class MenuService implements IMenuService {
     public List<Menu> getMenuOfRestaurant(String restaurantId) {
         List<Menu> menus = menuRepository.findMenuOfRestaurant(restaurantId);
         LOGGER.info("getMenuOfRestaurant size = {}", menus.size());
+        if (menus.isEmpty()) {
+            throw new InternalException("The restaurant menu is empty");
+        }
         return menus;
     }
 }

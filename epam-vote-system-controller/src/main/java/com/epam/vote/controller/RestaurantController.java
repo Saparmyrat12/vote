@@ -30,7 +30,6 @@ import javax.validation.Valid;
  * Copyright (C) 2021
  * <p/>
  * Date: май 24, 2021
- *
  * @author Sapar
  */
 @RestController
@@ -47,18 +46,14 @@ public class RestaurantController {
     public ResponseEntity<List<RestaurantDto>> getAllRestaurants() {
         List<RestaurantDto> restaurantDtoList = restaurantService.getAllRestaurants().stream()
             .map(RestaurantDto::new).collect(Collectors.toList());
-        return !restaurantDtoList.isEmpty()
-            ? new ResponseEntity<>(restaurantDtoList, HttpStatus.OK)
-            : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(restaurantDtoList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}/menu")
     public ResponseEntity<List<MenuDto>> getMenuOfRestaurant(@PathVariable(name = "id") String id) {
         List<MenuDto> menuDtoList = menuService.getMenuOfRestaurant(id).stream()
             .map(MenuDto::new).collect(Collectors.toList());
-        return !menuDtoList.isEmpty()
-            ? new ResponseEntity<>(menuDtoList, HttpStatus.OK)
-            : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(menuDtoList, HttpStatus.OK);
     }
 
     @PostMapping

@@ -4,6 +4,9 @@ import com.epam.vote.domain.Restaurant;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 /**
  * Restaurant dto.
  * <p/>
@@ -15,7 +18,12 @@ import java.util.Objects;
 public class RestaurantDto {
 
     private String id;
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String name;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String address;
 
     public RestaurantDto() {
