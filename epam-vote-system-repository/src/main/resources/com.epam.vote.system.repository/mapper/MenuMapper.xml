@@ -7,11 +7,11 @@
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="price" property="price"/>
-        <result column="createdUser" property="created_user"/>
-        <result column="updatedUser" property="updated_user"/>
-        <result column="createdDate" property="created_date"/>
-        <result column="updatedDate" property="updated_date"/>
-        <result column="recordVersion" property="record_version"/>
+        <result column="created_user" property="createdUser"/>
+        <result column="updated_user" property="updatedUser"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+        <result column="record_version" property="recordVersion"/>
     </resultMap>
 
     <select id="findMenuOfRestaurant" resultMap="MenuResultMap">
@@ -24,4 +24,15 @@
         inner join epam.restaurant as r on r.id = rd.restaurant_id
         where r.id = #{restaurantId}
     </select>
+
+    <insert id="saveMenu" parameterType="Menu">
+        insert into epam.dish(
+                id,
+                name,
+                created_user)
+        values (
+                #{id},
+                #{name},
+                #{created_user});
+    </insert>
 </mapper>
