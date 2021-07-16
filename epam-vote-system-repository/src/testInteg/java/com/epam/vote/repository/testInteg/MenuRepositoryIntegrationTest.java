@@ -38,4 +38,14 @@ public class MenuRepositoryIntegrationTest {
         assertEquals("pizza", menu.getName());
         assertEquals(new BigDecimal("5.55"), menu.getPrice());
     }
+
+    @Test
+    public void testSaveMenu() {
+        Menu expectedMenu = new Menu("550b17ef-389a-47a1-af76-1fb53373da69", "Hot Dog");
+        repository.saveMenu(expectedMenu);
+        Menu actualMenu = repository.findById("550b17ef-389a-47a1-af76-1fb53373da69");
+        assertEquals("550b17ef-389a-47a1-af76-1fb53373da69", actualMenu.getId());
+        assertEquals("Hot Dog", actualMenu.getName());
+        assertEquals("system", actualMenu.getCreatedUser());
+    }
 }

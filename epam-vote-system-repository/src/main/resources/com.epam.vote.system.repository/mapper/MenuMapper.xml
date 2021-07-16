@@ -14,6 +14,12 @@
         <result column="record_version" property="recordVersion"/>
     </resultMap>
 
+    <sql id="menuColumns">
+         id,
+         name,
+         created_user
+    </sql>
+
     <select id="findMenuOfRestaurant" resultMap="MenuResultMap">
         select
             d.id,
@@ -27,12 +33,17 @@
 
     <insert id="saveMenu" parameterType="Menu">
         insert into epam.dish(
-                id,
-                name,
-                created_user)
+            <include refid="menuColumns"/>)
         values (
-                #{id},
-                #{name},
-                #{created_user});
+               #{id},
+               #{name},
+               #{createdUser});
     </insert>
+
+    <select id="findById" resultMap="MenuResultMap">
+        select
+            <include refid="menuColumns"/>
+        from epam.dish
+        where id = #{id}
+    </select>
 </mapper>

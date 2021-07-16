@@ -29,4 +29,11 @@ public interface IMenuRepository {
      * @param menu instance of {@link Menu}.
      */
     void saveMenu(Menu menu);
+
+    /**
+     * This method finds a menu by id.
+     * @param id id menu.
+     * @return {@link Menu}.
+     */
+    Menu findById(String id);
 }
