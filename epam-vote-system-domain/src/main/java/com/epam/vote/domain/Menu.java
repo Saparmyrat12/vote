@@ -25,11 +25,6 @@ public class Menu extends BaseEntity<String> {
         this.price = price;
     }
 
-    public Menu(String id, String name) {
-        super(id);
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }

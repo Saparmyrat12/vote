@@ -17,5 +17,13 @@
             <column name="created_user" value="system"/>
             <column name="record_version" value="1"/>
         </insert>
+        <comment>"test data for testSaveMenuToRestaurant"</comment>
+        <insert tableName="restaurant" schemaName="epam">
+            <column name="id"  value="b9c9fd2e-973e-425e-93a0-72cb547b2f66"/>
+            <column name="name" value="Burger King"/>
+            <column name="address" value="Arch Street"/>
+            <column name="created_user" value="system"/>
+            <column name="record_version" value="1"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>
