@@ -19,4 +19,9 @@
     <changeSet id="2021-07-05-02" author="sapar">
         <tagDatabase tag="populate_tables"/>
     </changeSet>
+
+    <include file="v.1.0/create-extension.xml" relativeToChangelogFile="true"/>
+    <changeSet id="2021-15-07-02" author="sapar">
+        <tagDatabase tag="create_extension"/>
+    </changeSet>
 </databaseChangeLog>

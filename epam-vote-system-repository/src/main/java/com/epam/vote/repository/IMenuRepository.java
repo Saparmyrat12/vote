@@ -23,4 +23,17 @@ public interface IMenuRepository {
      * @return list of {@link Menu}'s.
      */
     List<Menu> findMenuOfRestaurant(String restaurantId);
+
+    /**
+     * This method saves the new dish.
+     * @param menu instance of {@link Menu}.
+     */
+    void saveMenu(Menu menu);
+
+    /**
+     * This method finds a menu by id.
+     * @param id id menu.
+     * @return {@link Menu}.
+     */
+    Menu findById(String id);
 }
