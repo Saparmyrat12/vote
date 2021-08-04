@@ -5,6 +5,11 @@ import com.epam.vote.domain.Menu;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 /**
  * Menu dto.
  * <p/>
@@ -16,7 +21,13 @@ import java.util.Objects;
 public class MenuDto {
 
     private String id;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String name;
+
+    @DecimalMax("500")
+    @DecimalMin("1")
     private BigDecimal price;
 
     public MenuDto(Menu menu) {
