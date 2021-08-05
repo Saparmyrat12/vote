@@ -71,30 +71,17 @@ public class MenuServiceTest {
     }
 
     @Test
-    public void testSaveMenu() {
-        Menu expectedMenu = new Menu();
-        expectedMenu.setId("");
-        expectedMenu.setName("Hot Dog");
-        doNothing().when(menuRepository).saveMenu(expectedMenu);
-        when(UidGenerator.generate()).thenReturn(UID);
-        Menu actualMenu = menuService.saveMenu(expectedMenu);
-        assertEquals(UID, actualMenu.getId());
-        assertEquals("Hot Dog", actualMenu.getName());
-        assertEquals("system", actualMenu.getCreatedUser());
-        verify(menuRepository, times(1)).saveMenu(expectedMenu);
-    }
-
-    @Test
-    public void testSaveMenuToRestaurant() {
+    public void testSave() {
         Menu expectedMenu = new Menu("", "Burger", new BigDecimal("7.55"));
-        menuRepository.saveMenu(expectedMenu);
+        doNothing().when(menuRepository).saveMenu(expectedMenu);
         doNothing().when(restaurantDishMapRepository)
             .saveMenuToRestaurant(expectedMenu, "b9c9fd2e-973e-425e-93a0-72cb547b2f66");
         when(UidGenerator.generate()).thenReturn(UID);
-        Menu actualMenu = menuService.saveMenuToRestaurant(expectedMenu, "b9c9fd2e-973e-425e-93a0-72cb547b2f66");
+        Menu actualMenu = menuService.save(expectedMenu, "b9c9fd2e-973e-425e-93a0-72cb547b2f66");
         assertEquals(UID, actualMenu.getId());
         assertEquals("Burger", actualMenu.getName());
         assertEquals(new BigDecimal("7.55"), actualMenu.getPrice());
+        verify(menuRepository, times(1)).saveMenu(expectedMenu);
         verify(restaurantDishMapRepository, times(1)).saveMenuToRestaurant(expectedMenu,
             "b9c9fd2e-973e-425e-93a0-72cb547b2f66");
     }

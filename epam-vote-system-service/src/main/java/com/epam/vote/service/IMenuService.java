@@ -22,17 +22,10 @@ public interface IMenuService {
     List<Menu> getMenuOfRestaurant(String restaurantId);
 
     /**
-     * This method saves the new dish.
-     * @param menu instance of {@link Menu}.
-     * @return {@link Menu}'s.
-     */
-    Menu saveMenu(Menu menu);
-
-    /**
      * This method saves a new dish in the restaurant menu.
      * @param menu instance of {@link Menu}.
      * @param restaurantId id of restaurant.
      * @return {@link Menu}'s.
      */
-    Menu saveMenuToRestaurant(Menu menu, String restaurantId);
+    Menu save(Menu menu, String restaurantId);
 }

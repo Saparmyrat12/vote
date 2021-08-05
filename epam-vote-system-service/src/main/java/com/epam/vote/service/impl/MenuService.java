@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,18 +45,12 @@ public class MenuService implements IMenuService {
     }
 
     @Override
-    public Menu saveMenu(Menu menu) {
+    @Transactional
+    public Menu save(Menu menu, String restaurantId) {
         menu.setId(UidGenerator.generate());
         menuRepository.saveMenu(menu);
-        LOGGER.info("saveMenu {}  {}", menu.getId(), menu.getCreatedUser());
-        return menu;
-    }
-
-    @Override
-    public Menu saveMenuToRestaurant(Menu menu, String restaurantId) {
-        menu.setId(UidGenerator.generate());
         restaurantDishMapRepository.saveMenuToRestaurant(menu, restaurantId);
-        LOGGER.info("saveMenuToRestaurant {}  {}", menu.getId(), restaurantId);
+        LOGGER.info("save {} {} {}", menu.getId(), restaurantId, menu.getCreatedUser());
         return menu;
     }
 }
